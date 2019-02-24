@@ -1,0 +1,128 @@
+$blanco: #f2f2f2
+$gris: #4c4c4c
+$t-gris: rgba(76, 76, 76, .05)
+$t-gris-oscuro: rgba(76, 76, 76, .45)
+$azul: #1f86c6
+$azul-oscuro: #1f66a6
+$elevation-1: 2px 2px 5px rgba(0,0,0,0.25)
+$elevation-3: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+
+*
+  font-family: 'Roboto', sans-serif
+
+body
+  background-color: $blanco
+
+.about
+
+.cita
+  font-family: 'Roboto Slab', serif
+  text-align: justify
+  font-style: italic
+  font-weight: 100
+
+.content-center
+  display: flex !important
+  justify-content: center
+  align-items: center
+
+.first
+  padding: 25px 0 50px
+
+.footer
+  background-color: $gris
+  padding-top: 20px
+  padding-bottom: 40px
+
+  *
+    font-family: 'Montserrat', sans-serif
+    color: $blanco
+
+  a:hover
+    text-decoration: none
+    color: $blanco
+
+  .item
+    padding-top: 20px
+
+  .title
+    font-weight: bold
+
+
+.info
+  
+  padding: 60px 0 
+
+  p, h4
+    font-family: 'Roboto Slab', serif
+    text-align: justify
+    font-weight: 300
+
+.navbar
+  a
+    font-family: 'Montserrat', sans-serif !important
+    color: $gris
+
+  .login
+    border: 1px solid $gris
+    border-radius: 2px
+
+  .logo
+    font-weight: bold
+
+  .nav-icon
+    color: $gris
+
+  .nav-item
+    font-size: .8em
+
+.quote
+  display: flex
+  justify-content: flex-end
+
+.second
+  background-image: url('../img/main.jpg')
+  background-size: cover
+  background-repeat: no-repeat
+  min-height: 470px
+  padding-top: 50px
+
+  *
+    font-family: 'Montserrat', sans-serif !important
+
+  button
+    box-shadow: $elevation-1
+    border-radius: 0
+    margin-top: 25px
+    background-color: $azul
+    border: none
+
+    &:hover
+      background-color: $azul-oscuro
+
+  form
+    background-color: $blanco
+    padding: 20px
+    margin: 20px
+    box-shadow: $elevation-3
+
+  input
+    margin-top: 25px
+    background-color: transparent !important
+    border: none
+    border-bottom: 1px solid $t-gris-oscuro !important
+    padding-left: 0 
+
+    &:focus
+      outline: none
+
+  .title
+    color: $azul !important
+    font-weight: bold
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) 
+  
+  nav
+    background-color: $t-gris
+

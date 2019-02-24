@@ -1,0 +1,152 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+.cita {
+  font-family: 'Roboto Slab', serif;
+  text-align: justify;
+  font-style: italic;
+  font-weight: 100;
+}
+
+.content-center {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.first {
+  padding: 25px 0 50px;
+}
+
+.footer {
+  background-color: #4c4c4c;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.footer * {
+  font-family: 'Montserrat', sans-serif;
+  color: #f2f2f2;
+}
+
+.footer a:hover {
+  text-decoration: none;
+  color: #f2f2f2;
+}
+
+.footer .item {
+  padding-top: 20px;
+}
+
+.footer .title {
+  font-weight: bold;
+}
+
+.info {
+  padding: 60px 0;
+}
+
+.info p, .info h4 {
+  font-family: 'Roboto Slab', serif;
+  text-align: justify;
+  font-weight: 300;
+}
+
+.navbar a {
+  font-family: 'Montserrat', sans-serif !important;
+  color: #4c4c4c;
+}
+
+.navbar .login {
+  border: 1px solid #4c4c4c;
+  border-radius: 2px;
+}
+
+.navbar .logo {
+  font-weight: bold;
+}
+
+.navbar .nav-icon {
+  color: #4c4c4c;
+}
+
+.navbar .nav-item {
+  font-size: .8em;
+}
+
+.quote {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.second {
+  background-image: url("../img/main.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 470px;
+  padding-top: 50px;
+}
+
+.second * {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.second button {
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  margin-top: 25px;
+  background-color: #1f86c6;
+  border: none;
+}
+
+.second button:hover {
+  background-color: #1f66a6;
+}
+
+.second form {
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.second input {
+  margin-top: 25px;
+  background-color: transparent !important;
+  border: none;
+  border-bottom: 1px solid rgba(76, 76, 76, 0.45) !important;
+  padding-left: 0;
+}
+
+.second input:focus {
+  outline: none;
+}
+
+.second .title {
+  color: #1f86c6 !important;
+  font-weight: bold;
+}
+
+@media (max-width: 576px) {
+  nav {
+    background-color: rgba(76, 76, 76, 0.05);
+  }
+}
+/*# sourceMappingURL=style.css.map */

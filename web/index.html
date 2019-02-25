@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,41 +15,42 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body id='body'>
   <nav class="navbar navbar-expand-lg sticky-top justify-content-between">
-    <a class="navbar-brand logo" href="#">
+    <a class="navbar-brand logo sliding-link" href="#body">
       GDPR
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="material-icons nav-icon">layers</i>
     </button>
-    <ul class="nav collapse navbar-collapse justify-content-end">
+    <ul class="nav collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <li class="nav-item">
-        <a class="nav-link" href="#info">Info</a>
+        <a class="nav-link sliding-link" href="#info">Info</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#about">Sobre Nosotros</a>
+        <a class="nav-link sliding-link" href="#about">Sobre Nosotros</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link login" href="#">Log In</a>
+        <a class="nav-link sliding-link login" href="#">Log In</a>
       </li>
     </ul>
   </nav>
   <div>
     <section class="first">
       <div class="container">
-          <div class="row">
-              <div class="col col-2 quote">
-                <img src="img/quote.png" width="20px" height="17px">
-              </div>
-              <div class="col col-8 cita">
-                La protección de las personas físicas en relación con el tratamiento de datos personales es un derecho
-                fundamental. El artículo 8, apartado 1, de la Carta de los Derechos Fundamentales de la Unión Europea («la
-                Carta») y el artículo 16, apartado 1, del Tratado de Funcionamiento de la Unión Europea (TFUE) establecen que
-                toda persona tiene derecho a la protección de los datos de carácter personal que le conciernan.
-              </div>
-            </div>
+        <div class="row">
+          <div class="col col-2 quote">
+            <img src="img/quote.png" width="20px" height="17px">
+          </div>
+          <div class="col col-8 cita">
+            La protección de las personas físicas en relación con el tratamiento de datos personales es un derecho
+            fundamental. El artículo 8, apartado 1, de la Carta de los Derechos Fundamentales de la Unión Europea («la
+            Carta») y el artículo 16, apartado 1, del Tratado de Funcionamiento de la Unión Europea (TFUE) establecen
+            que
+            toda persona tiene derecho a la protección de los datos de carácter personal que le conciernan.
+          </div>
+        </div>
       </div>
     </section>
     <section class="second">
@@ -56,48 +58,123 @@
         <div class="row">
           <form class="col col-md-3 col-sm-12" method="POST">
             <h6 class="title">REGISTRO INVESTIGADOR</h6>
-              <input class="col col-md-12 col-sm-12" type="text" name="nombre" placeholder="Nombre">
-              <input class="col col-md-12 col-sm-12" type="text" name="apellidos" placeholder="Apellidos">
-              <input class="col col-md-12 col-sm-12" type="email" name="correo" placeholder="Correo">
-              <input class="col col-md-12 col-sm-12" type="password" name="password" placeholder="Contraseña">
-              <button class="btn btn-primary btn-sm float-right" type="submit">ACCEDER</button>
+            <input class="col col-md-12 col-sm-12" type="text" name="nombre" placeholder="Nombre">
+            <input class="col col-md-12 col-sm-12" type="text" name="apellidos" placeholder="Apellidos">
+            <input class="col col-md-12 col-sm-12" type="email" name="correo" placeholder="Correo">
+            <div class="input-group justify-content-between">
+              <input class="col col-md-10 col-sm-10" type="password" name="password" id="passwd"
+                placeholder="Contraseña">
+              <div class="input-group-append content-center">
+                <i class="material-icons" id="togglePasswd">visibility</i>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm float-right submit" type="submit">ACCEDER</button>
           </form>
         </div>
       </div>
     </section>
     <section class="info" id="info">
-        <div class="container">
-          <div class="row">
-            <div class="col-1 col-md-2"></div>
-            <div class="col-md-4 col-10 d-flex flex-column justify-content-between">
-              <h4>
-                Sobre la aplicación
-              </h4>
-                <p>
-                    La aprobación hace unos meses del Reglamento General de Protección de Datos impone a
-                    cualquier organización que maneje datos personales la necesidad de tratarlos
-                    cuidadosamente para mantener la privacidad.
-                </p>
-                <p>
-                    Esto exige a las organizaciones que manejan datos personales a organizar los procesos que
-                    aseguren que se mantiene dicha privacidad. 
-                </p>
-            </div>
-            <div class="col-1 d-md-none"></div>
-            <div class="col-1 d-md-none"></div>
-            <div class="col-md-4 col-10">
-                <p>En el caso de las universidades tecnológicas en
-                    las que se realizan proyectos de investigación científico-técnica que a menudo necesitan
-                    tratar datos personales privados muy sensibles (información genética, información sobre
-                    movimientos de personas en espacios públicos), se establece un Comité de Ética, compuesto
-                    por expertos en privacidad, que evalúa –antes de que comience- el riesgo de cualquier
-                    actividad de investigación que maneje datos sensibles.
-                </p>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-1 col-md-2"></div>
+          <div class="col-md-4 col-10 d-flex flex-column justify-content-between">
+            <h4>
+              Sobre la aplicación
+            </h4>
+            <p>
+              La aprobación hace unos meses del Reglamento General de Protección de Datos impone a
+              cualquier organización que maneje datos personales la necesidad de tratarlos
+              cuidadosamente para mantener la privacidad.
+            </p>
+            <p>
+              Esto exige a las organizaciones que manejan datos personales a organizar los procesos que
+              aseguren que se mantiene dicha privacidad.
+            </p>
           </div>
-        </div>      
+          <div class="col-1 d-md-none"></div>
+          <div class="col-1 d-md-none"></div>
+          <div class="col-md-4 col-10">
+            <p>En el caso de las universidades tecnológicas en
+              las que se realizan proyectos de investigación científico-técnica que a menudo necesitan
+              tratar datos personales privados muy sensibles (información genética, información sobre
+              movimientos de personas en espacios públicos), se establece un Comité de Ética, compuesto
+              por expertos en privacidad, que evalúa –antes de que comience- el riesgo de cualquier
+              actividad de investigación que maneje datos sensibles.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
     <section class="about" id="about">
+      <div class="container">
+        <div class="row content-center">
+          <div class="col col-12 col-md-4 person content-center">
+            <div class="row">
+              <div class="col-12 content-center">
+                  <img class="img-responsive" src="img/profile.jpg">
+              </div>
+              <div class="col-12 content-center">
+                <h6 class="person-name">Nombre Apellido1 Apellido2</h6>
+              </div>
+              <div class="col-12 content-center">
+                <a class="link" href="https://github.com/Paleloser">GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="col col-12 col-md-4 person content-center">
+              <div class="row">
+                <div class="col-12 content-center">
+                    <img class="img-responsive" src="img/profile.jpg">
+                </div>
+                <div class="col-12 content-center">
+                  <h6 class="person-name">Nombre Apellido1 Apellido2</h6>
+                </div>
+                <div class="col-12 content-center">
+                  <a class="link" href="https://www.linkedin.com/in/pablo-caraballo-llorente-93a55711a/">LinkedIn</a>
+                </div>
+              </div>
+          </div>
+          <div class="col col-12 col-md-4 person content-center">
+              <div class="row">
+                <div class="col-12 content-center">
+                    <img class="img-responsive" src="img/profile.jpg">
+                </div>
+                <div class="col-12 content-center">
+                  <h6 class="person-name">Nombre Apellido1 Apellido2</h6>
+                </div>
+                <div class="col-12 content-center">
+                  <a class="link" href="https://www.linkedin.com/in/pablo-caraballo-llorente-93a55711a/">LinkedIn</a>
+                </div>
+              </div>
+          </div>
+          <div class="col col-12 col-md-4 person content-center">
+              <div class="row">
+                <div class="col-12 content-center">
+                    <img class="img-responsive" src="img/profile.jpg">
+                </div>
+                <div class="col-12 content-center">
+                  <h6 class="person-name">Nombre Apellido1 Apellido2</h6>
+                </div>
+                <div class="col-12 content-center">
+                  <a class="link" href="https://www.linkedin.com/in/pablo-caraballo-llorente-93a55711a/">LinkedIn</a>
+                </div>
+              </div>
+          </div>
+          <div class="col col-12 col-md-4 person content-center">
+              <div class="row">
+                <div class="col-12 content-center">
+                    <img class="img-responsive" src="img/profile.jpg">
+                </div>
+                <div class="col-12 content-center">
+                  <h6 class="person-name">Nombre Apellido1 Apellido2</h6>
+                </div>
+                <div class="col-12 content-center">
+                  <a class="link" href="https://www.linkedin.com/in/pablo-caraballo-llorente-93a55711a/">LinkedIn</a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
     </section>
     <div class="footer content-center">
       <div class="container">
@@ -108,9 +185,9 @@
                 <a class="title">GDPR</a>
               </div>
               <div class="col-12 content-center justify-content-between">
-                <a class="link" href="#">Inicio</a> |
-                <a class="link" href="#info">Info</a> |
-                <a class="link" href="#about">Sobre Nosotros</a>
+                <a class="link sliding-link" href="#body">Inicio</a> |
+                <a class="link sliding-link" href="#info">Info</a> |
+                <a class="link sliding-link" href="#about">Sobre Nosotros</a>
               </div>
             </div>
           </div>
@@ -124,8 +201,12 @@
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
 </body>
+
 </html>

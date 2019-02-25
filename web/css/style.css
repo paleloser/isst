@@ -2,8 +2,47 @@
   font-family: 'Roboto', sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(76, 76, 76, 0.45);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4c4c4c;
+}
+
 body {
   background-color: #f2f2f2;
+  overflow-x: hidden;
+}
+
+.about {
+  padding: 60px 0 60px;
+}
+
+.about .person {
+  padding: 10px;
+}
+
+.about .person img {
+  max-width: 245px;
+  height: auto;
+  border: 5px solid white;
+  border-radius: 100%;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.about .person .person-name {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif !important;
+  margin: 15px 0 0 0;
 }
 
 .cita {
@@ -54,7 +93,7 @@ body {
 }
 
 .info {
-  padding: 60px 0;
+  padding: 60px 0 0;
 }
 
 .info p, .info h4 {
@@ -63,14 +102,35 @@ body {
   font-weight: 300;
 }
 
+.navbar {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .navbar a {
   font-family: 'Montserrat', sans-serif !important;
   color: #4c4c4c;
 }
 
+.navbar button:focus {
+  outline: none;
+}
+
 .navbar .login {
+  background-color: rgba(242, 242, 242, 0.5);
   border: 1px solid #4c4c4c;
   border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.navbar .login:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .navbar .logo {
@@ -102,21 +162,27 @@ body {
   padding-top: 50px;
 }
 
-.second * {
+.second *:not(i) {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-.second button {
-  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+.second .submit {
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 0;
   margin-top: 25px;
   background-color: #1f86c6;
   border: none;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
-.second button:hover {
+.second .submit:hover {
   background-color: #1f66a6;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .second form {
@@ -125,6 +191,17 @@ body {
   margin: 20px;
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.second i {
+  color: rgba(76, 76, 76, 0.45);
+  cursor: pointer;
+}
+
+.second i:hover {
+  color: #4c4c4c;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .second input {
@@ -137,6 +214,10 @@ body {
 
 .second input:focus {
   outline: none;
+}
+
+.second #passwd:not(:placeholder-shown) {
+  letter-spacing: 6px;
 }
 
 .second .title {

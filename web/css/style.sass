@@ -1,19 +1,53 @@
 $blanco: #f2f2f2
+$t-blanco: rgba(242,242,242,.5)
 $gris: #4c4c4c
 $t-gris: rgba(76, 76, 76, .05)
 $t-gris-oscuro: rgba(76, 76, 76, .45)
 $azul: #1f86c6
+$t-azul: rgba(31, 134, 198, .5)
 $azul-oscuro: #1f66a6
-$elevation-1: 2px 2px 5px rgba(0,0,0,0.25)
+$t-azul-oscuro: rgba(31, 102, 166, .5)
+$elevation-1: 2px 2px 5px rgba(0,0,0,0.2)
 $elevation-3: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 
 *
   font-family: 'Roboto', sans-serif
 
+/* width */
+::-webkit-scrollbar 
+  width: 7px
+
+/* Handle */
+::-webkit-scrollbar-thumb 
+  background-color: $t-gris-oscuro
+
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover 
+  background: $gris 
+
+
 body
   background-color: $blanco
+  overflow-x: hidden;
 
 .about
+  padding: 60px 0 60px 
+
+  .person
+    padding: 10px
+    
+    img
+      max-width: 245px
+      height: auto
+      border: 5px solid white
+      border-radius: 100%
+      box-shadow: $elevation-1
+
+    .person-name
+      text-align: center
+      font-family: 'Montserrat', sans-serif !important
+      margin: 15px 0 0 0
 
 .cita
   font-family: 'Roboto Slab', serif
@@ -50,8 +84,7 @@ body
 
 
 .info
-  
-  padding: 60px 0 
+  padding: 60px 0 0 
 
   p, h4
     font-family: 'Roboto Slab', serif
@@ -59,20 +92,34 @@ body
     font-weight: 300
 
 .navbar
+
+  padding-left: 40px
+  padding-right: 40px
+
   a
     font-family: 'Montserrat', sans-serif !important
     color: $gris
 
+  button:focus
+    outline: none
+
   .login
+    background-color: $t-blanco
     border: 1px solid $gris
     border-radius: 2px
+    box-shadow: $elevation-1
+    transition: .5s
+
+    &:hover
+      box-shadow: none
+      transition: .5s
 
   .logo
     font-weight: bold
 
   .nav-icon
     color: $gris
-
+    
   .nav-item
     font-size: .8em
 
@@ -87,24 +134,35 @@ body
   min-height: 470px
   padding-top: 50px
 
-  *
+  *:not(i)
     font-family: 'Montserrat', sans-serif !important
 
-  button
+  .submit
     box-shadow: $elevation-1
     border-radius: 0
     margin-top: 25px
     background-color: $azul
     border: none
+    transition: .2s
 
     &:hover
       background-color: $azul-oscuro
+      box-shadow: none
+      transition: .2s
 
   form
     background-color: $blanco
     padding: 20px
     margin: 20px
     box-shadow: $elevation-3
+
+  i
+    color: $t-gris-oscuro
+    cursor: pointer
+    
+    &:hover
+      color: $gris
+      transition: .2s
 
   input
     margin-top: 25px
@@ -115,6 +173,10 @@ body
 
     &:focus
       outline: none
+
+  #passwd
+    &:not(:placeholder-shown)
+      letter-spacing: 6px
 
   .title
     color: $azul !important

@@ -1,6 +1,7 @@
 $blanco: #f2f2f2
 $t-blanco: rgba(242,242,242,.5)
 $gris: #4c4c4c
+$gris-oscuro: #2c2c2c
 $t-gris: rgba(76, 76, 76, .05)
 $t-gris-oscuro: rgba(76, 76, 76, .45)
 $azul: #1f86c6
@@ -30,6 +31,9 @@ $elevation-3: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 body
   background-color: $blanco
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
 .about
   padding: 60px 0 60px 
@@ -49,21 +53,48 @@ body
       font-family: 'Montserrat', sans-serif !important
       margin: 15px 0 0 0
 
+.alert
+  font-size: 11pt
+
+.casos-investigador
+  padding: 0 20px
+
+  td
+    padding: 10px 10px 2px
+
 .cita
   font-family: 'Roboto Slab', serif
+  font-size: 12pt
   text-align: justify
   font-style: italic
   font-weight: 100
+
+.content
+  display: flex
+  flex-direction: column
+  flex-grow: 1
 
 .content-center
   display: flex !important
   justify-content: center
   align-items: center
 
+.dropdown-item
+
+  &:hover
+    background-color: $t-gris
+
+  &:focus
+    background-color: $t-azul
+
+.dropdown-menu
+  background-color: $blanco
+
 .first
-  padding: 25px 0 50px
+  padding: 25px 15px 50px
 
 .footer
+  margin-top: auto
   background-color: $gris
   padding-top: 20px
   padding-bottom: 40px
@@ -82,9 +113,11 @@ body
   .title
     font-weight: bold
 
+h1, h2, h3, h4, h5, h6
+  font-family: 'Montserrat', sans-serif !important
 
 .info
-  padding: 60px 0 0 
+  padding: 60px 0
 
   p, h4
     font-family: 'Roboto Slab', serif
@@ -122,6 +155,13 @@ body
     
   .nav-item
     font-size: .8em
+
+.open-case
+  *
+    color: $t-gris-oscuro
+
+  i:hover
+    color: $gris-oscuro
 
 .quote
   display: flex
@@ -186,5 +226,5 @@ body
 @media (max-width: 576px) 
   
   nav
-    background-color: $t-gris
+    //background-color: $t-gris
 

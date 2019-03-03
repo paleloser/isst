@@ -157,14 +157,16 @@ h1, h2, h3, h4, h5, h6
     text-align: justify
     font-weight: 300
 
-input
+input, textarea
   border-radius: 0 !important
   border: none !important
   border-bottom: 1px solid $t-gris-oscuro !important
   padding-left: 0 
 
   &:focus
+    outline: none !important
     border: none !important
+    box-shadow: $elevation-1
     transition: .2s
 
 .inputfile

@@ -11,6 +11,8 @@ $t-azul-oscuro: rgba(31, 102, 166, .5)
 $elevation-1: 2px 2px 5px rgba(0,0,0,0.2)
 $elevation-3: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 
+$custom-file-text: ( en: "Browse", es: "Elegir");
+
 *
   font-family: 'Roboto', sans-serif
 
@@ -26,7 +28,6 @@ $elevation-3: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover 
   background: $gris 
-
 
 body
   background-color: $blanco
@@ -56,6 +57,17 @@ body
 .alert
   font-size: 11pt
 
+.btn
+  box-shadow: $elevation-1
+
+  &:focus
+    border: none !important
+    outline: none !important
+    box-shadow: none
+
+#btn-add, .btn-del
+  margin-top: 15px
+
 .casos-investigador
   padding: 0 20px
 
@@ -68,6 +80,9 @@ body
   text-align: justify
   font-style: italic
   font-weight: 100
+
+.config-form
+  margin-top: 15px
 
 .content
   display: flex
@@ -113,6 +128,24 @@ body
   .title
     font-weight: bold
 
+form
+  i
+    color: $t-gris-oscuro
+    cursor: pointer
+    
+    &:hover
+      color: $gris
+      transition: .2s
+
+.form-control:focus
+  border-color: $gris-oscuro
+  box-shadow: $elevation-1
+  -webkit-box-shadow: $elevation-1
+
+.form-group
+  display: flex
+  flex-wrap: wrap
+
 h1, h2, h3, h4, h5, h6
   font-family: 'Montserrat', sans-serif !important
 
@@ -123,6 +156,27 @@ h1, h2, h3, h4, h5, h6
     font-family: 'Roboto Slab', serif
     text-align: justify
     font-weight: 300
+
+input
+  border-radius: 0 !important
+  border: none !important
+  border-bottom: 1px solid $t-gris-oscuro !important
+  padding-left: 0 
+
+  &:focus
+    border: none !important
+    transition: .2s
+
+.inputfile
+  width: 1px
+  height: 1px
+  opacity: 0
+  overflow: hidden
+  position: absolute
+  z-index: -1
+  
+  + label
+    padding-left: 5px
 
 .navbar
 
@@ -163,6 +217,10 @@ h1, h2, h3, h4, h5, h6
   i:hover
     color: $gris-oscuro
 
+.profile-sidebar
+  padding: 15px
+  background-color: $t-gris  
+
 .quote
   display: flex
   justify-content: flex-end
@@ -178,31 +236,16 @@ h1, h2, h3, h4, h5, h6
     font-family: 'Montserrat', sans-serif !important
 
   .submit
-    box-shadow: $elevation-1
-    border-radius: 0
-    margin-top: 25px
     background-color: $azul
-    border: none
-    transition: .2s
-
+    
     &:hover
       background-color: $azul-oscuro
-      box-shadow: none
-      transition: .2s
 
   form
     background-color: $blanco
     padding: 20px
     margin: 20px
     box-shadow: $elevation-3
-
-  i
-    color: $t-gris-oscuro
-    cursor: pointer
-    
-    &:hover
-      color: $gris
-      transition: .2s
 
   input
     margin-top: 25px
@@ -221,6 +264,18 @@ h1, h2, h3, h4, h5, h6
   .title
     color: $azul !important
     font-weight: bold
+
+ 
+.submit
+  box-shadow: $elevation-1
+  border-radius: 0
+  margin-top: 25px
+  border: none
+  transition: .2s
+   
+  &:hover
+    box-shadow: none
+    transition: .2s
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 576px) 

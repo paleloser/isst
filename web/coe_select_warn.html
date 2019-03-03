@@ -26,19 +26,18 @@
     </button>
     <ul class="nav collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Nombre de Proyecto #N</a>
+        <a class="nav-link" href="/coe_general.html">Casos pendientes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/proyectos.html">Mis Casos</a>
+        <a class="nav-link" href="/coe_personal.html">Mis Casos</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          <img src="img/profile.jpg" height="40px" style="border-radius: 100%;">
+          <img src="img/coe.png" height="40px" style="border-radius: 100%;">
         </a>
         <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/proyectos.html">Mis Casos</a>
-          <a class="dropdown-item" href="/configuracion.html">Configuración</a>
+          <a class="dropdown-item" href="#">Configuración</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/index.html">Log Out</a>
         </div>
@@ -47,66 +46,32 @@
   </nav>
   <div class="content">
     <section class="first container">
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <h4>Nombre de Proyecto #N</h4>
-        </div>
-        <div class="col-sm-12 col-md-6 d-flex justify-content-end">
-          <h6><span class="badge badge-danger">Denegado</span></h6>
-        </div>
-      </div>
+      <h4>Nombre de Caso #N</h4>
       <hr>
-      <div class="row">
-        <div class="col-sm-12 col-md-5 justify-content-start align-items-start">
-            <div class="col-sm-12 d-flex justify-content-center align-items-center">
-              <div class="card" style="height: fit-content; margin-bottom: 20px;">
-                <div class="card-body">
-                  <h5 class="card-title d-flex text-truncate"><i
-                      class="material-icons">attachment</i>&nbsp;fichero_original</h5>
-                  <div style="display: block;">
-                    <small class="card-text text-monospace text-truncate" style="display: block;"><b>sha256:
-                      </b>704bb521576f96e308d7e1a07b4783634063645f64182a968e91f6f5e642c7ff</small></div>
-                  <a href="#" class="card-link">Descargar</a>
-                </div>
-              </div>
-            </div>
+      <form action="" method="POST" id="detalles-form">
+        <div class="form-group row" id="detalles">
+          <div class="col-sm-3 col-md-2 compDetalle">
+            <label for="">Página referida</label>
+            <input type="number" name='detalles[0][pagina]' id='detalles[0][pagina]' class="form-control detalle">
+          </div>
+          <div class="col-sm-3 col-md-2 compDetalle">
+            <label for="">Párrafo referido</label>
+            <input type="number" name='detalles[0][parrafo]' id='detalles[0][parrafo]' class="form-control detalle">
+          </div>
+          <div class="col-sm-3 col-md-2 compDetalle">
+            <label for="">Artículo requerido</label>
+            <input type="number" name='detalles[0][articulo]' id='detalles[0][articulo]' class="form-control detalle">
+          </div>
+          <div class="col-sm-3 col-md-2 compDetalle last-detalle">
+            <label for="">Sección del artículo</label>
+            <input type="number" name='detalles[0][seccion]' id='detalles[0][seccion]' class="form-control detalle">
+          </div>
+          <div class="col-2 compDetalle align-self-end">
+            <input type="button" name="btn-add" value="Añadir Warning" class="btn btn-secondary" id="btn-add">
+          </div>
         </div>
-        <div class="col-sm-12 col-md-7">
-          <p class="alert alert-danger text-justify">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde natus laboriosam veniam nemo
-            expedita consequatur iste.
-          </p>
-        </div>
-      </div>
-    </section>
-    <section class="history container">
-      <h6>Histórico</h6>
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Tipo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>10/01/2019</td>
-            <td>Subido</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>11/01/2019</td>
-            <td>Bajo estudio</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>15/01/2019</td>
-            <td>Denegado</td>
-          </tr>
-        </tbody>
-      </table>
+        <button type="submit" class="btn btn-secondary align-self-end">Enviar</button>
+      </form>
     </section>
     <footer class="footer content-center">
       <div class="container">
@@ -139,6 +104,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
+  <script src="js/coe.js"></script>
 </body>
 
 </html>

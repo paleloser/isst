@@ -37,11 +37,10 @@ $(document).ready(() => {
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
   });
 
+  // Nice navbar shade
   const header = $('nav');
   const range = 250;
-
   $(window).on('scroll', function () {
-
     let scroll = $(this).scrollTop();
     let height = header.outerHeight() / 2;
     let i = scroll*2 / (range + height);
@@ -50,7 +49,23 @@ $(document).ready(() => {
     let shadow = (scroll > (range + height) || i > 0.2) ? `2px 2px 10px rgba(100,100,100, .2)`: (scroll < height) ? `2px 2px 10px rgba(100,100,100, .0)` : `2px 2px 10px rgba(100,100,100, ${i})`;
     header.css('background-color', bgColor);
     header.css('box-shadow', shadow);
-    console.log(`Scroll: ${scroll}`)
-    console.log(`Color: ${bgColor}`);
+  });
+
+  // Nice file input
+  let fileInputs = $('.inputfile');
+  fileInputs.each(function(i, input) {
+    let label	 = $(this).next(),
+      labelVal = label.innerHTML;
+
+    $(this).change(function(e) {
+      let fileName = e.target.value.split('\\').pop();
+      if (fileName) {
+        label.css('font-family', 'Montserrat, sans-serif');
+        label.css('font-size', '10pt');
+        label.html(fileName);
+      } else {
+        label.html(labelVal);
+      }
+    });
   });
 });

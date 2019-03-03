@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta lang="es">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="GDPR - ISST G22 | Mis casos">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -13,6 +14,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body id='body'>
   <nav class="navbar navbar-expand-lg sticky-top justify-content-between">
     <a class="navbar-brand logo sliding-link" href="#body">
@@ -24,15 +26,16 @@
     </button>
     <ul class="nav collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <li class="nav-item">
-        <a class="nav-link sliding-link" href="#body">Mis Casos</a>
+        <a class="nav-link" href="#body">Configuración</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           <img src="img/profile.jpg" height="40px" style="border-radius: 100%;">
         </a>
         <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Mis Casos</a>
-          <a class="dropdown-item" href="#">Configuración</a>
+          <a class="dropdown-item" href="/proyectos.html">Mis Casos</a>
+          <a class="dropdown-item" href="#body">Configuración</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/index.html">Log Out</a>
         </div>
@@ -41,50 +44,65 @@
   </nav>
   <div class="content">
     <section class="first container">
-            <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="profile-sidebar">
-                                <!-- SIDEBAR USERPIC -->
-                                <div class="profile-userpic col-sm-11 col-md-10 col-lg-5 ">
-                                    <img src="http://localhost:5500/img/profile.jpg" class="img-fluid rounded-circle" alt="">
-                                </div>
-                                <!-- END SIDEBAR USERPIC -->
-                                <!-- SIDEBAR USER TITLE -->
-                                <h5 class="content-center">Pale 'lo' Ser</h5>    
-                                <!-- END SIDEBAR USER TITLE -->
-                                <!-- SIDEBAR BUTTONS -->
-                                <!-- <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm">Follow</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Message</button>
-                                </div> -->
-                                <!-- END SIDEBAR BUTTONS -->
-                                <!-- SIDEBAR MENU -->
-                                <div class="list-group list-group-flush">
-                                    
-                                    <a class="list-group-item list-group-item-action bg-light" href="#">
-                                        <i class="material-icons">info</i> Overview 
-                                    </a>
-                                
-                                    <a class="list-group-item list-group-item-action bg-light" href="#">
-                                        <i class="material-icons">build</i> Account Settings 
-                                    </a>
-                                
-                                    <a class="list-group-item list-group-item-action bg-light" href="#" target="_blank">
-                                        <i class="material-icons">check_box</i> Tasks 
-                                    </a>
-                                
-                                    <a class="list-group-item list-group-item-action bg-light" href="#">
-                                        <i class="material-icons">help</i> Help 
-                                    </a>
-                                       
-                                    
-                                </div>
-                                <!-- END MENU -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <div class="profile-sidebar d-flex flex-column align-items-start">
+            <div class="profile-userpic col-5 align-self-center">
+              <img src="http://localhost:5500/img/profile.jpg" class="img-fluid rounded-circle" alt="">
+            </div>
+            <h5 class="content-center" style="padding: 15px 0 0;">Nombre Apellidos</h5>            
+            <p class="content-center" style="font-size: 10pt;">Mail: correo.actual@upm.es</p>
+            <p class="content-center" style="font-size: 10pt;">DNI: 01234567A</p>
+            <p class="content-center" style="font-size: 10pt;">CdI: Departamento de Ingeniería de Servicios Telemáticos</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-8">
+          <form class="config-form">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input class="form-control" type="text" name="name" placeholder="Nombre Actual">
+            </div>
+            <div class="form-group">
+              <label for="surname">Apellidos</label>
+              <input class="form-control" type="text" name="surname" placeholder="Apellidos Actuales">
+            </div>
+            <div class="form-group">
+              <label for="email">Correo Institucional</label>
+              <input class="form-control" type="email" name="email" placeholder="correo.actual@upm.es">
+              <small>Correo de la UPM</small>
+            </div>
+            <div class="form-group">
+              <label for="dni">DNI</label>
+              <input class="form-control" type="text" name="dni" placeholder="01234567A">
+            </div>
+            <div class="form-group">
+              <label for="cdi">Centro de Investigación</label>
+              <input class="form-control" type="test" name="cdi" placeholder="Departamento de Ingeniería de Servicios Telemáticos">
+              <small>Centro de investigación de la UPM</small>
+            </div>
+            <div class="form-group">
+              <label for="passwd">Nueva contraseña</label>
+              <input type="password" class="form-control" name="passwd">
+              <small>Mínimo 6 caracteres, conteniendo un símbolo</small>
+            </div>
+            <div class="form-group">
+              <label>Repetir contraseña</label>
+              <input type="password" class="form-control">
+            </div>
+            <div class="form-group flex-column">
+              <label>Nueva foto de perfil</label>
+              <input type="file" name="file" id="file" class="inputfile" />
+              <label for="file">
+                <i class="material-icons">
+                  cloud_upload
+                </i>
+              </label>
+              <small>La foto sólo se admitirá si el formato es jpg, png o gif</small>
+            </div>
+            <button class="btn btn-secondary submit">Guardar</button>
+          </form>
+        </div>
+      </div>
     </section>
     <footer class="footer content-center">
       <div class="container">

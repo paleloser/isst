@@ -27,7 +27,7 @@ $(document).ready(() => {
    * @type {jQuery}
    */
   let detallesAnadidos = $(".btn-del").length; // Por cada detalle añadido vamos a poner un botón de borrado.
-  let derallesForm =$("#detalles-form");
+  let detallesForm =$("#detalles-form");
   // Añadir detalle.
   $("#btn-add").click(function () {
     detallesAnadidos++;
@@ -97,9 +97,6 @@ $(document).ready(() => {
       detalle.eq(i + 4).attr('class', 'col-2 detalle blank-' + j);
       detalle.eq(i + 5).attr('data-valor', j);
       j++;
-    }
-    if (detallesAnadidos == 0) {
-
     }
   });
 });

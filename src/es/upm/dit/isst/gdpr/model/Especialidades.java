@@ -4,8 +4,6 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.FetchType;
-import java.util.Collection;
 
 @Entity
 public class Especialidades implements Serializable {

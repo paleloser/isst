@@ -9,18 +9,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet({ "/index" })
+@WebServlet({ "/FormServlet" })
 public class FormServlet extends HttpServlet {
+
+	private final String[] AREAS = { "personal", "biomedica", "animales", "quimicos", "genetica", "radiactiva",
+			"medioambiental", "otro" };
+
+	private String capitalize(final String line) {
+		return Character.toUpperCase(line.charAt(0)) + line.substring(1);
+	}
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ArrayList<String> areas = new ArrayList<>();
-		areas.add("personal");
-		req.getSession().setAttribute( "areas", areas );
-		getServletContext().getRequestDispatcher( "/FormProyecto.jsp" ).forward( req, resp );
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		ArrayList<String> areas = new ArrayList<>();
+		for (String area : AREAS) {
+			if (req.getParameter(area) != null) {
+				if (req.getParameter(area).equals("si")) {
+					areas.add(capitalize(area));
+				}
+			}
+		}
+		req.getSession().setAttribute("areas", areas);
+		getServletContext().getRequestDispatcher("/FormProyecto.jsp").forward(req, resp);
 	}
 }

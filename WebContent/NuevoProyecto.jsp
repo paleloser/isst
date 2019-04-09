@@ -21,7 +21,7 @@
   <jsp:include page="views/nav_user.jsp" />
   <div class="content">
     <section class="first container">
-      <h3>Subir proyecto para validación</h3>
+      <h3>Nuevo proyecto para validación</h3>
       <hr>
       <form class="container" action="FormServlet" method="POST">
         <!-- Info Principal del Proyecto (común para todas las areas) -->
@@ -29,6 +29,7 @@
           <label for="titulo">Título</label>
           <input type="text" class="form-control" name="titulo" required>
         </div>
+        <br>
         <div class="form-group">
           <label for="titulo">Fecha inicio/fin</label>
           <input type="date" class="form-control" name="fecha" required>

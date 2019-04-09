@@ -29,6 +29,7 @@
       </c:forEach>
       <button class="btn btn-secondary submit">Continuar</button>
     </form>
+    <br>
     <jsp:include page="views/footer_user.jsp" />
   </div>
   <jsp:include page="views/scripts.jsp" />

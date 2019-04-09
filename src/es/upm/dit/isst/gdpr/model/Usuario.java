@@ -74,7 +74,7 @@ public class Usuario implements Serializable {
 	public void setEspecialidades (Collection<Especialidades> especialidades){
 		this.especialidades = especialidades;
 	}
-	public void setEspecialidadesSolicitud (Collection<EspecialidadesSolicitud> especialidades){
+	public void setEspecialidadesSolicitud (Collection<EspecialidadesSolicitud> especialidadesSolicitud){
 		this.especialidadesSolicitud = especialidadesSolicitud;
 	}
 	public void setNotificaciones (Collection<Notificacion> notificaciones){

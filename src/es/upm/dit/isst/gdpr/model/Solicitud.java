@@ -1,7 +1,6 @@
 package es.upm.dit.isst.gdpr.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

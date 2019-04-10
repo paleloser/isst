@@ -33,6 +33,9 @@ public class FormServlet extends HttpServlet {
 				}
 			}
 		}
+		// We need those on the next servlet to make the CREATE query
+		req.getSession().setAttribute("titulo", req.getParameter("titulo"));
+		req.getSession().setAttribute("fecha", req.getParameter("fecha"));
 		req.getSession().setAttribute("areas", areas);
 		getServletContext().getRequestDispatcher("/FormProyecto.jsp").forward(req, resp);
 	}

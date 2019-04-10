@@ -24,7 +24,21 @@
           <h1>${area}</h1>
         </div>
         <br>
-        <jsp:include page="views/form${area}.jsp" />
+        <c:choose>
+          <c:when test="${area == 'Personal' || area == 'Biomedica'}">
+            <jsp:include page="views/form${area}.jsp" />
+          </c:when>
+          <c:otherwise>
+            <div class="container">
+              Esta plataforma sólo contempla aspectos que atañen al Reglamento General de Protección de Datos aprobado
+              el 14
+              de abril de 2016.
+              Para aspectos de temática <b>${area}</b>, por favor consulte los formularios expuestos en la
+              siguiente dirección: <a href="http://www.upm.es/Investigacion/soporte/ComiteEtica">UPM - Comité de
+                ética</a>
+            </div>
+          </c:otherwise>
+        </c:choose>
         <br>
       </c:forEach>
       <button class="btn btn-secondary submit">Continuar</button>

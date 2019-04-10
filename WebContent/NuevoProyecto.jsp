@@ -148,26 +148,6 @@
             </div>
           </div>
         </div>
-        <br>
-        <div class="row">
-          <div class="col-sm-12 col-md-8">
-            ¿El proyecto contiene otro tipo de datos que considera necesario revisar?
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" name="otro" type="radio" value="si">
-              <label class="form-check-label" for="otro">Sí</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" name="otro" type="radio" value="no" checked>
-              <label class="form-check-label" for="otro">No</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-check form-check-inline" style="margin: 10px 0;">
-          <textarea name="other" id="nuevo-proy-textarea" cols="2000" rows="2" style="width: 100%; padding: 5px;"
-            placeholder="Indique cuál/es (en caso de haber marcado 'Sí')"></textarea>
-        </div>
         <button class="btn btn-secondary submit">Continuar</button>
       </form>
     </section>

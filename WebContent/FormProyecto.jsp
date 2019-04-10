@@ -39,9 +39,23 @@
                 siguiente dirección: <a href="http://www.upm.es/Investigacion/soporte/ComiteEtica">UPM - Comité de
                   ética</a>
               </div>
+              <br>
             </c:otherwise>
           </c:choose>
         </c:forEach>
+        <div class="container">
+          <h6>Subir memoria del proyecto</h6>
+          <div class="form-group flex-column">
+            <input type="file" name="file" id="file" class="inputfile" required />
+            <label for="file">
+              <i class="material-icons">
+                cloud_upload
+              </i>
+            </label>
+            <small>Formatos admitidos: pdf, txt, zip, tar, gz, doc, docx</small>
+          </div>
+        </div>
+        <br>
         <button class="btn btn-secondary submit">Continuar</button>
       </form>
     </section>

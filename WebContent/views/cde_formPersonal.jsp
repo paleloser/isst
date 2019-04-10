@@ -5,14 +5,13 @@
 <div class="container">
   <h3>RECOGIDA Y PROTECCIÓN DE DATOS PERSONALES DE LOS PARTICIPANTES</h3>
   <hr>
-  <!-- Checkbox Template -->
   <div>
+    <!-- RADIO BUTTON TEMPLATE -->
     <div class="row">
       <div class="col-sm-12 col-md-8">
         ¿Los datos de la investigación provienen de este proyecto?
       </div>
       <div class="col-sm-12 col-md-4">
-        <!-- RADIO BUTTON TEMPLATE -->
         <c:if test="${personal0 == 'si'}">
           <div class="form-check form-check-inline">
             <input class="form-check-input" name="personal0" type="radio" checked disabled>
@@ -36,11 +35,13 @@
       </div>
     </div>
     <br>
+    <!-- TEXT INPUT / TEXTAREA TEMPLATE -->
     <div class="from-group">
       <label for="personal">Procedimiento de captación de las personas participantes:</label>
       <input type="text" class="form-control" name="personal2" placeholder="${personal2}" disabled>
     </div>
     <br>
+    <!-- CHECKBOX TEMPLATE -->
     <div class="row">
       <div class="col-sm-12 col-md-8">
         Se solicitará formalmente y por escrito el consentimiento a las personas participantes del trabajo de campo que

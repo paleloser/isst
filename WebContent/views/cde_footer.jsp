@@ -9,9 +9,9 @@
             <a class="title">GDPR</a>
           </div>
           <div class="col-12 content-center justify-content-between">
-            <a class="link" href="Proyectos">Mis Casos</a>
-            |<a class="link" href="Configuracion">Configuración</a>
-            |<a class="link" href="LogOut">Log Out</a>
+            <a class="link" href="/CDEPersonal">Mis Casos</a>
+            |<a class="link" href="#">Configuración</a>
+            |<a class="link" href="/index">Log Out</a>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <div class="container">
   <h3>RECOGIDA Y PROTECCIÓN DE DATOS PERSONALES DE LOS PARTICIPANTES</h3>
   <hr>
@@ -10,20 +12,33 @@
         ¿Los datos de la investigación provienen de este proyecto?
       </div>
       <div class="col-sm-12 col-md-4">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" name="personal0" type="radio" value="si">
-          <label class="form-check-label" for="personal">Sí</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" name="personal0" type="radio" value="no">
-          <label class="form-check-label" for="personal">No</label>
-        </div>
+        <!-- RADIO BUTTON TEMPLATE -->
+        <c:if test="${personal0 == 'si'}">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="personal0" type="radio" checked disabled>
+            <label class="form-check-label" for="personal">Sí</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="personal0" type="radio" disabled>
+            <label class="form-check-label" for="personal">No</label>
+          </div>
+        </c:if>
+        <c:if test="${personal0 == 'no'}">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="personal0" type="radio" disabled>
+            <label class="form-check-label" for="personal">Sí</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="personal0" type="radio" checked disabled>
+            <label class="form-check-label" for="personal">No</label>
+          </div>
+        </c:if>
       </div>
     </div>
     <br>
     <div class="from-group">
       <label for="personal">Procedimiento de captación de las personas participantes:</label>
-      <input type="text" class="form-control" name="personal2" required>
+      <input type="text" class="form-control" name="personal2" placeholder="${personal2}" disabled>
     </div>
     <br>
     <div class="row">
@@ -33,7 +48,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal3" value="si">
+          <c:choose>
+            <c:when test="${not empty personal3}">
+              <input class="form-check-input" type="checkbox" name="personal3" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal3" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -44,7 +66,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal4" value="si">
+          <c:choose>
+            <c:when test="${not empty personal4}">
+              <input class="form-check-input" type="checkbox" name="personal4" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal4" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -55,7 +84,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal5" value="si">
+          <c:choose>
+            <c:when test="${not empty personal5}">
+              <input class="form-check-input" type="checkbox" name="personal5" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal5" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -68,7 +104,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal6" value="si">
+          <c:choose>
+            <c:when test="${not empty personal6}">
+              <input class="form-check-input" type="checkbox" name="personal6" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal6" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -81,7 +124,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal7" value="si">
+          <c:choose>
+            <c:when test="${not empty personal3}">
+              <input class="form-check-input" type="checkbox" name="personal7" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal7" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -93,7 +143,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal8" value="si">
+          <c:choose>
+            <c:when test="${not empty personal8}">
+              <input class="form-check-input" type="checkbox" name="personal8" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal8" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -105,7 +162,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal9" value="si">
+          <c:choose>
+            <c:when test="${not empty personal9}">
+              <input class="form-check-input" type="checkbox" name="personal9" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal9" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -117,7 +181,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal10" value="si">
+          <c:choose>
+            <c:when test="${not empty personal10}">
+              <input class="form-check-input" type="checkbox" name="personal10" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal10" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -128,7 +199,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal11" value="si">
+          <c:choose>
+            <c:when test="${not empty personal11}">
+              <input class="form-check-input" type="checkbox" name="personal11" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal11" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -142,7 +220,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal12" value="si">
+          <c:choose>
+            <c:when test="${not empty personal12}">
+              <input class="form-check-input" type="checkbox" name="personal12" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal12" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -153,7 +238,14 @@
       </div>
       <div class="col-sm-12 col-md-4">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="personal13" value="si">
+          <c:choose>
+            <c:when test="${not empty personal13}">
+              <input class="form-check-input" type="checkbox" name="personal13" checked disabled>
+            </c:when>
+            <c:otherwise>
+              <input class="form-check-input" type="checkbox" name="personal13" disabled>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -166,8 +258,8 @@
   <div>
     <div class="from-group">
       <label for="titulo">
-          ¿Está previsto un plan para el tratamiento, la custodia y la conservación de los datos recogidos
-          en el trabajo de campo?</label>
+        ¿Está previsto un plan para el tratamiento, la custodia y la conservación de los datos recogidos
+        en el trabajo de campo?</label>
       <input type="text" class="form-control" name="personal14" required>
     </div>
     <br>

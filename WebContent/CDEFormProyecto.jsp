@@ -28,10 +28,10 @@
           <jsp:include page="views/cde_form${area}.jsp" />
           <br>
         </c:forEach>
+        <a href="AprobarFormulario" class="btn btn-primary submit">Aprobar</a>
         <button class="btn btn-secondary submit">Solicitar Info</button>
+        <a href="DenegarFormulario" class="btn btn-danger submit">Denegar</a>
       </form>
-      <a href="AprobarFormulario" class="btn btn-primary">Aprobar</a>
-      <a href="DenegarFormulario" class="btn btn-danger">Denegar</a>
     </section>
     <br>
     <jsp:include page="views/cde_footer.jsp" />

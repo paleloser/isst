@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <nav class="navbar navbar-expand-lg sticky-top justify-content-between">
-  <a class="navbar-brand logo" href="/">
+  <a class="navbar-brand logo" href="index">
     GDPR
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

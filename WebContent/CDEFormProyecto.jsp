@@ -19,24 +19,27 @@
   <jsp:include page="views/cde_nav.jsp" />
   <div class="content">
     <section class="first container">
-      <form class="container" action="RevisarFormulario" method="POST">
-        <c:forEach items="${areas}" var="area">
-          <div class="container">
-            <h1>${area}</h1>
-          </div>
-          <br>
-          <jsp:include page="views/cde_form${area}.jsp" />
-          <br>
-        </c:forEach>
-        <div class="form-group flex-column">
-          <a class="btn btn-primary" id="getFile" value="${titulo}">
-            Descargar Memoria
-          </a>
+      <c:forEach items="${areas}" var="area">
+        <div class="container">
+          <h1>${area}</h1>
         </div>
         <br>
-        <a href="AprobarFormulario" class="btn btn-primary submit">Aprobar</a>
+        <jsp:include page="views/cde_form${area}.jsp" />
+        <br>
+      </c:forEach>
+      <form class="container" action="ServirInvestigacionServlet" method="POST">
+        <input type="text" name="titulo" value="${titulo}" hidden>
+        <button class="btn btn-primary submit">Descargar Memoria</button>
+        <br>
+      </form>
+      <form action="AprobarFormulario" class="container">
+        <button class="btn btn-primary submit">Aprobar</button>
+      </form>
+      <form action="RevisarFormulario" class="container">
         <button class="btn btn-secondary submit">Solicitar Info</button>
-        <a href="DenegarFormulario" class="btn btn-danger submit">Denegar</a>
+      </form>
+      <form action="DenegarFormulario" class="container">
+        <button class="btn btn-danger submit">Denegar</button>
       </form>
     </section>
     <br>

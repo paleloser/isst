@@ -12,7 +12,7 @@ import es.upm.dit.isst.gdpr.dao.SolicitudDAO;
 import es.upm.dit.isst.gdpr.dao.SolicitudDAOImplementation;
 import es.upm.dit.isst.gdpr.model.Solicitud;
 
-@WebServlet({ "/ServirInvestigadorServlet" })
+@WebServlet({ "/ServirInvestigacionServlet" })
 public class ServirInvestigacionServlet extends HttpServlet{
 	
 	@Override

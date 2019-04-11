@@ -99,22 +99,4 @@ $(document).ready(() => {
       j++;
     }
   });
-
-  $('#getFile').on('click', () => {
-    $.ajax({
-      type: "POST",
-      url: 'ServirInvestigadorServlet',
-      data: {
-        titulo: $('#getFile').attr('value')
-      },
-      success: function (data) {
-        var a = document.createElement('a');
-        var url = window.URL.createObjectURL(data);
-        a.href = url;
-        a.download = 'memoria';
-        a.click();
-        window.URL.revokeObjectURL(url);
-      }
-    });
-  })
 });

@@ -1,7 +1,10 @@
 package es.upm.dit.isst.gdpr.servlets;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,6 +14,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import es.upm.dit.isst.gdpr.dao.SolicitudDAO;
+import es.upm.dit.isst.gdpr.dao.SolicitudDAOImplementation;
+import es.upm.dit.isst.gdpr.model.Solicitud;
 
 @WebServlet({ "/EnviarFormulario" })
 public class EnviarFormulario extends HttpServlet {
@@ -34,7 +42,24 @@ public class EnviarFormulario extends HttpServlet {
    */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    // How to get the area\d+ input fields:
+		
+		String titulo = req.getParameter("titulo");
+		String fecha = req.getParameter("fecha");
+		
+		Solicitud solicitud = new Solicitud();
+		solicitud.setFecha(fecha);
+		solicitud.setTitulo(titulo);
+		
+		Part filePart = req.getPart( "file" );
+		InputStream fileContent = filePart.getInputStream();
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		byte[] buffer = new byte[10240];
+		for(int length=0; (length = fileContent.read(buffer)) > 0;) output.write(buffer,0,length);
+		
+		solicitud.setInvestigacion(output.toByteArray());
+		
+		
+  // How to get the area\d+ input fields:
     Map<String, String[]> parameters = req.getParameterMap();
 		ArrayList<String> areas = new ArrayList<>();
     for (String key : parameters.keySet()) {
@@ -54,12 +79,22 @@ public class EnviarFormulario extends HttpServlet {
         }
       }
     }
+    
+    solicitud.setForm(parameters);
+    solicitud.setEstado(1);
+    
+    
+    
+    SolicitudDAO solDAO = SolicitudDAOImplementation.getInstance();
+	solDAO.create(solicitud);
+	
     // Remove the fields of the project we dont need anymore
     req.getSession().removeAttribute("titulo");
     req.getSession().removeAttribute("fecha");
     req.getSession().removeAttribute("areas");
     // Following lines are written only to test the CdE view
 		req.setAttribute("areas", areas);
+		req.setAttribute("id", solicitud.getId());
 		getServletContext().getRequestDispatcher("/CDEFormProyecto.jsp").forward(req, resp);
   }
 }

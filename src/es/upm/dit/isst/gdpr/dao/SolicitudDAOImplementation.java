@@ -11,6 +11,11 @@ public class SolicitudDAOImplementation implements SolicitudDAO{
 
 	
 	private static SolicitudDAOImplementation instancia = null;
+	public static SolicitudDAOImplementation getInstance() {
+		if ( instancia == null )
+			instancia = new SolicitudDAOImplementation();
+		return instancia;
+	}
 	private SolicitudDAOImplementation() {}
 	@Override
 	public void create(Solicitud solicitud) {

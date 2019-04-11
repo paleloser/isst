@@ -50,9 +50,9 @@ public class EnviarFormulario extends HttpServlet {
 		String titulo = req.getSession().getAttribute("titulo").toString();
 		String fecha = req.getSession().getAttribute("fecha").toString();
 		
-		Solicitud solicitud = new Solicitud(titulo);
+		Solicitud solicitud = new Solicitud();
 		solicitud.setFecha(fecha);
-		//solicitud.setTitulo(titulo);
+		solicitud.setTitulo(titulo);
 		
 		Part filePart = req.getPart( "file" );
 		InputStream fileContent = filePart.getInputStream();

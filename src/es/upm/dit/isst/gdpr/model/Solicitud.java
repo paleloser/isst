@@ -38,8 +38,8 @@ public class Solicitud implements Serializable{
 	private int estado;
 	private String fecha;
 	
-	public Solicitud(String titulo) {
-		this.titulo=titulo;
+	public Solicitud() {
+		
 	}
 	
 	@OneToMany(mappedBy = "titulo")@LazyCollection(LazyCollectionOption.FALSE)

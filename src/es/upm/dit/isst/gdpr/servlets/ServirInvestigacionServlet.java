@@ -23,6 +23,7 @@ public class ServirInvestigacionServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String titulo = req.getParameter("titulo");
+		System.out.println(titulo);
 		SolicitudDAO solDAO = SolicitudDAOImplementation.getInstance();
 		
 		Solicitud solicitud = solDAO.read(titulo);

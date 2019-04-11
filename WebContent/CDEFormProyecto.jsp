@@ -28,6 +28,12 @@
           <jsp:include page="views/cde_form${area}.jsp" />
           <br>
         </c:forEach>
+        <div class="form-group flex-column">
+          <a class="btn btn-primary" id="getFile" value="${titulo}">
+            Descargar Memoria
+          </a>
+        </div>
+        <br>
         <a href="AprobarFormulario" class="btn btn-primary submit">Aprobar</a>
         <button class="btn btn-secondary submit">Solicitar Info</button>
         <a href="DenegarFormulario" class="btn btn-danger submit">Denegar</a>
@@ -37,6 +43,7 @@
     <jsp:include page="views/cde_footer.jsp" />
   </div>
   <jsp:include page="views/scripts.jsp" />
+  <script src="${pageContext.request.contextPath}/js/coe.js"></script>
 </body>
 
 </html>

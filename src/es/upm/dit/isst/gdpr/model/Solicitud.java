@@ -1,8 +1,12 @@
 package es.upm.dit.isst.gdpr.model;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.Map;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
@@ -10,7 +14,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Solicitud implements Serializable{
 	
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	@ManyToOne
@@ -21,8 +25,27 @@ public class Solicitud implements Serializable{
 	@Lob
 	private byte[] investigacion;
 	
-	private byte[] form;
+	private Map<String, String[]> form;
 	private int estado;
+	
+	private String fecha;
+	private String titulo;
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha2) {
+		this.fecha = fecha2;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 
 	public Solicitud() {
 		
@@ -60,11 +83,11 @@ public class Solicitud implements Serializable{
 		this.investigacion = investigacion;
 	}
 
-	public byte[] getForm() {
+	public Map<String, String[]> getForm() {
 		return form;
 	}
 
-	public void setForm(byte[] form) {
+	public void setForm(Map<String, String[]> form) {
 		this.form = form;
 	}
 

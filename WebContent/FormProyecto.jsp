@@ -19,7 +19,7 @@
   <jsp:include page="views/nav_user.jsp" />
   <div class="content">
     <section class="first container">
-      <form class="container" action="EnviarFormulario" method="POST">
+      <form class="container" action="EnviarFormulario" method="POST" enctype="multipart/form-data">
         <c:forEach items="${areas}" var="area">
           <div class="container">
             <h1>${area}</h1>

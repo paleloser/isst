@@ -4,12 +4,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +21,7 @@ import es.upm.dit.isst.gdpr.dao.SolicitudDAOImplementation;
 import es.upm.dit.isst.gdpr.model.Solicitud;
 
 @WebServlet({ "/EnviarFormulario" })
+@MultipartConfig
 public class EnviarFormulario extends HttpServlet {
 
 	private final String[] AREAS = { "personal", "biomedica" };

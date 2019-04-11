@@ -3,6 +3,10 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.FetchType;
 import java.util.Collection;
 
@@ -10,37 +14,32 @@ import java.util.Collection;
 public class Usuario implements Serializable {
 	
 	@Id
-	private int id;
+	private String userName;
 	
 	private String email;
 	private String password;
 	private String DNI;
-	private String userName;
 	private String name;
 	private String surname;
 	private String cdi;
 	private boolean mcde;
 	
-	@OneToMany(mappedBy = "investigador", fetch = FetchType.EAGER)
-	private Collection<Solicitud> misSolicitudes;
+	@OneToMany(mappedBy = "investigador") @LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<Solicitud> misSolicitudes;               //Solicitudes que me pertenecen como investigador
 	
-	@OneToMany(mappedBy = "miembroCde", fetch = FetchType.EAGER)
-	private Collection<Solicitud> solicitudes;
+	@OneToMany(mappedBy = "miembroCDE")@LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<Solicitud> solicitudes;                   //Solicitudes a revisar como miembroCDE
 	
-	@OneToMany(mappedBy = "id", fetch = FetchType.EAGER)
-	private Collection<Especialidades> especialidades;
+	@OneToMany(mappedBy = "userName")@LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<Especialidades> especialidades;            //Especialidades como miembroCDE
 	
-	@OneToMany(mappedBy = "id", fetch = FetchType.EAGER)
-	private Collection<EspecialidadesSolicitud> especialidadesSolicitud;
 	
 	@OneToMany(mappedBy = "email", fetch = FetchType.EAGER)
 	private Collection<Notificacion> notificaciones;
 	
 	public Usuario() {}
 	
-	public void setId (int id){
-		this.id =id;
-	}
+	
 	public void setEmail (String email){
 		this.email = email;
 	}
@@ -74,16 +73,11 @@ public class Usuario implements Serializable {
 	public void setEspecialidades (Collection<Especialidades> especialidades){
 		this.especialidades = especialidades;
 	}
-	public void setEspecialidadesSolicitud (Collection<EspecialidadesSolicitud> especialidadesSolicitud){
-		this.especialidadesSolicitud = especialidadesSolicitud;
-	}
+	
 	public void setNotificaciones (Collection<Notificacion> notificaciones){
 		this.notificaciones = notificaciones;
 	}
 	
-	public int getId (){
-		return id;
-	}
 	public String getEmail (){
 		return email;
 	}
@@ -117,9 +111,7 @@ public class Usuario implements Serializable {
 	public Collection<Especialidades> getEspecialidades (){
 		return especialidades;
 	}
-	public Collection<EspecialidadesSolicitud> getEspecialidadesSolicitud (){
-		return especialidadesSolicitud;
-	}
+	
 	public Collection<Notificacion> getNotificaciones (){
 		return notificaciones;
 	}

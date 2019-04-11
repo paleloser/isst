@@ -5,7 +5,7 @@ import es.upm.dit.isst.gdpr.model.EspecialidadesSolicitud;
 
 public interface EspecialidadesSolicitudDAO {
 	public void create(EspecialidadesSolicitud especialidades);
-	public EspecialidadesSolicitud read(int id);
+	public EspecialidadesSolicitud read(String titulo);
 	public void update(EspecialidadesSolicitud especialidades);
 	public void delete(EspecialidadesSolicitud especialidades);
 	public Collection<EspecialidadesSolicitud> readAll();

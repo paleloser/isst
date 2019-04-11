@@ -14,7 +14,7 @@ public class Notificacion implements Serializable{
 	@Id
 	private int id;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = Usuario.class)
 	private String email;
 	
 	private String asunto;

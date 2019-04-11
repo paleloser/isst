@@ -42,11 +42,11 @@ public class EspecialidadesSolicitudDAOImplementation implements EspecialidadesS
 	}
 	
 	@Override
-	public EspecialidadesSolicitud read(int id) {
+	public EspecialidadesSolicitud read(String titulo) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			EspecialidadesSolicitud esps = session.load(EspecialidadesSolicitud.class,  id);
+			EspecialidadesSolicitud esps = session.load(EspecialidadesSolicitud.class,  titulo);
 			session.getTransaction().commit();
 			return esps;
 		} catch(Exception e) {

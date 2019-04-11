@@ -22,10 +22,10 @@ public class ServirInvestigacionServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String id = req.getParameter("id");
+		String titulo = req.getParameter("titulo");
 		SolicitudDAO solDAO = SolicitudDAOImplementation.getInstance();
 		
-		Solicitud solicitud = solDAO.read(Integer.parseInt(id));
+		Solicitud solicitud = solDAO.read(titulo);
 		
 		resp.setContentLength(solicitud.getInvestigacion().length);
 		resp.getOutputStream().write(solicitud.getInvestigacion());

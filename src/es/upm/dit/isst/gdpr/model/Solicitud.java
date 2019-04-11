@@ -1,35 +1,57 @@
 package es.upm.dit.isst.gdpr.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 public class Solicitud implements Serializable{
 	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	@Id 
+	private String titulo;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = Usuario.class)
 	private Usuario investigador;
-	
+	@ManyToOne(targetEntity = Usuario.class)
 	private Usuario miembroCDE;
 	
 	@Lob
 	private byte[] investigacion;
 	
+	@ElementCollection
 	private Map<String, String[]> form;
 	private int estado;
 	
 	private String fecha;
-	private String titulo;
+	
+	public Solicitud(String titulo) {
+		this.titulo=titulo;
+	}
+	
+	@OneToMany(mappedBy = "titulo")@LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<EspecialidadesSolicitud> especialidadesSolicitud;
+
+	public Collection<EspecialidadesSolicitud> getEspecialidadesSolicitud() {
+		return especialidadesSolicitud;
+	}
+
+	public void setEspecialidadesSolicitud(Collection<EspecialidadesSolicitud> especialidadesSolicitud) {
+		this.especialidadesSolicitud = especialidadesSolicitud;
+	}
 
 	public String getFecha() {
 		return fecha;
@@ -46,18 +68,7 @@ public class Solicitud implements Serializable{
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-
-	public Solicitud() {
-		
-	}
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public Usuario getInvestigador() {
 		return investigador;

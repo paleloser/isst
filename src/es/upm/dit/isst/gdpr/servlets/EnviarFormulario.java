@@ -18,7 +18,10 @@ import javax.servlet.http.Part;
 
 import es.upm.dit.isst.gdpr.dao.SolicitudDAO;
 import es.upm.dit.isst.gdpr.dao.SolicitudDAOImplementation;
+import es.upm.dit.isst.gdpr.dao.UsuarioDAO;
+import es.upm.dit.isst.gdpr.dao.UsuarioDAOImplementation;
 import es.upm.dit.isst.gdpr.model.Solicitud;
+import es.upm.dit.isst.gdpr.model.Usuario;
 
 @WebServlet({ "/EnviarFormulario" })
 @MultipartConfig
@@ -44,12 +47,13 @@ public class EnviarFormulario extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String titulo = req.getParameter("titulo");
-		String fecha = req.getParameter("fecha");
+		String titulo = req.getSession().getAttribute("titulo").toString();
+		String fecha = req.getSession().getAttribute("fecha").toString();
+		System.out.print(titulo);
 		
-		Solicitud solicitud = new Solicitud();
+		Solicitud solicitud = new Solicitud(titulo);
 		solicitud.setFecha(fecha);
-		solicitud.setTitulo(titulo);
+		//solicitud.setTitulo(titulo);
 		
 		Part filePart = req.getPart( "file" );
 		InputStream fileContent = filePart.getInputStream();
@@ -85,7 +89,11 @@ public class EnviarFormulario extends HttpServlet {
     solicitud.setEstado(1);
     
     
-    
+    //UsuarioDAO usDAO = UsuarioDAOImplementation.getInstance();
+    //Usuario alex=usDAO.read("alex");
+    //Usuario paco=usDAO.read("paco");
+    //solicitud.setInvestigador(alex);
+    //solicitud.setMiembroCDE(paco);
     SolicitudDAO solDAO = SolicitudDAOImplementation.getInstance();
 	solDAO.create(solicitud);
 	
@@ -95,7 +103,7 @@ public class EnviarFormulario extends HttpServlet {
     req.getSession().removeAttribute("areas");
     // Following lines are written only to test the CdE view
 		req.setAttribute("areas", areas);
-		req.setAttribute("id", solicitud.getId());
+		req.setAttribute("titulo", solicitud.getTitulo());
 		getServletContext().getRequestDispatcher("/CDEFormProyecto.jsp").forward(req, resp);
   }
 }

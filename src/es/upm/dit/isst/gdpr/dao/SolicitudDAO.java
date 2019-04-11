@@ -8,7 +8,7 @@ public interface SolicitudDAO {
 	
 	public void create(Solicitud solicitud);
 	
-	public Solicitud read(int id);
+	public Solicitud read(String titulo);
 	
 	public void update(Solicitud solicitud);
 	

@@ -2,31 +2,44 @@ package es.upm.dit.isst.gdpr.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Especialidades implements Serializable {
 	
-	@Id
-	@ManyToOne
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	private boolean TAM;
-	private boolean TAICC;
-	private boolean TI;
-	private boolean TIC;
-	private boolean D;
-	private boolean DM;
+	
+
+	@ManyToOne(targetEntity = Usuario.class)
+	private String userName;
+	private boolean TAM;    //Tecnologias Agroforestales y Medioambientales
+	private boolean TAICC;  //Tecnologias de la Arquitectura e Ingenieria de caminos y civil
+	private boolean TI;     //Tecnologias Industriales
+	private boolean TIC;    //Tecnologias de la Informacion y de las Comunicaciones
+	private boolean D;      //Deporte
+	private boolean DM;     //Diseño y Moda
 	
 	public Especialidades() {}
-
+	
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public boolean getTAM() {

@@ -9,25 +9,24 @@ import javax.persistence.ManyToOne;
 @Entity
 public class EspecialidadesSolicitud implements Serializable {
 	
-	@Id
-	@ManyToOne
-	private int id;
+	@Id@ManyToOne(targetEntity = Solicitud.class)
+	private String titulo;
 	
-	private boolean TAM;
-	private boolean TAICC;
-	private boolean TI;
-	private boolean TIC;
-	private boolean D;
-	private boolean DM;
+	private boolean TAM;    //Tecnologias Agroforestales y Medioambientales
+	private boolean TAICC;  //Tecnologias de la Arquitectura e Ingenieria de caminos y civil
+	private boolean TI;     //Tecnologias Industriales
+	private boolean TIC;    //Tecnologias de la Informacion y de las Comunicaciones
+	private boolean D;      //Deporte
+	private boolean DM;     //Diseño y Moda
 	
 	public EspecialidadesSolicitud() {}
 
-	public int getId() {
-		return id;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public boolean getTAM() {

@@ -42,11 +42,11 @@ public class EspecialidadesDAOImplementation implements EspecialidadesDAO{
 	}
 	
 	@Override
-	public Especialidades read(int id) {
+	public Especialidades read(String userName) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			Especialidades esp = session.load(Especialidades.class,  id);
+			Especialidades esp = session.load(Especialidades.class,  userName);
 			session.getTransaction().commit();
 			return esp;
 		} catch(Exception e) {

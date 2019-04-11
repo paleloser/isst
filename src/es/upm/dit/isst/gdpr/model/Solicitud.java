@@ -34,8 +34,8 @@ public class Solicitud implements Serializable{
 	
 	@ElementCollection
 	private Map<String, String[]> form;
-	private int estado;
 	
+	private int estado;
 	private String fecha;
 	
 	public Solicitud(String titulo) {

@@ -10,13 +10,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Especialidades implements Serializable {
 	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
 	
-	
-
+	@Id
 	@ManyToOne(targetEntity = Usuario.class)
 	private String userName;
+	
 	private boolean TAM;    //Tecnologias Agroforestales y Medioambientales
 	private boolean TAICC;  //Tecnologias de la Arquitectura e Ingenieria de caminos y civil
 	private boolean TI;     //Tecnologias Industriales
@@ -25,7 +23,7 @@ public class Especialidades implements Serializable {
 	private boolean DM;     //Diseño y Moda
 	
 	public Especialidades() {}
-	
+	/*
 	public int getId() {
 		return id;
 	}
@@ -33,7 +31,7 @@ public class Especialidades implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	 */
 	public String getUserName() {
 		return userName;
 	}

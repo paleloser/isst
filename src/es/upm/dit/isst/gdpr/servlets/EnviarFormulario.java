@@ -49,7 +49,6 @@ public class EnviarFormulario extends HttpServlet {
 		
 		String titulo = req.getSession().getAttribute("titulo").toString();
 		String fecha = req.getSession().getAttribute("fecha").toString();
-		System.out.print(titulo);
 		
 		Solicitud solicitud = new Solicitud(titulo);
 		solicitud.setFecha(fecha);
@@ -88,12 +87,14 @@ public class EnviarFormulario extends HttpServlet {
     solicitud.setForm(parameters);
     solicitud.setEstado(1);
     
-    
+    //TODO En el siguiente Sprint-- Añadir investigadores y miembroCDE a la solicitud
     //UsuarioDAO usDAO = UsuarioDAOImplementation.getInstance();
     //Usuario alex=usDAO.read("alex");
     //Usuario paco=usDAO.read("paco");
     //solicitud.setInvestigador(alex);
     //solicitud.setMiembroCDE(paco);
+    
+    
     SolicitudDAO solDAO = SolicitudDAOImplementation.getInstance();
 	solDAO.create(solicitud);
 	

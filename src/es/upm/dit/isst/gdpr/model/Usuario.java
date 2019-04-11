@@ -21,8 +21,8 @@ public class Usuario implements Serializable {
 	private String DNI;
 	private String name;
 	private String surname;
-	private String cdi;
-	private boolean mcde;
+	private String cdi;          //Centro investigacion
+	private boolean mcde;	     //isMemberCDE
 	
 	@OneToMany(mappedBy = "investigador") @LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<Solicitud> misSolicitudes;               //Solicitudes que me pertenecen como investigador

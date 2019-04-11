@@ -115,10 +115,10 @@
 				</c:when>
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica8" type="checkbox"  disabled>
-				</c:otherwise>
-				<label class="form-check-label" for="biomedica">Se solicitará formalmente el consentimiento a las personas
-					participantes.</label>
-			</c:choose>	
+				</c:otherwise>				
+			</c:choose>
+			<label class="form-check-label" for="biomedica">Se solicitará formalmente el consentimiento a las personas
+					participantes.</label>	
 			</div>
 		</div>
 	</div>
@@ -132,10 +132,10 @@
 				</c:when>
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica9" type="checkbox" disabled>
-				</c:otherwise>
+				</c:otherwise>	
+			</c:choose>
 				<label class="form-check-label" for="biomedica">Los sujetos participantes disponen de suficiente información
 					sobre el estudio.</label>
-			</c:choose>	
 			</div>
 		</div>
 	</div>
@@ -149,10 +149,10 @@
 				</c:when>
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica10" type="checkbox" disabled>
-				</c:otherwise>
+				</c:otherwise>	
+			</c:choose>
 				<label class="form-check-label" for="biomedica">Acuerdo de transferencia de muestras o tejidos
 					humanos.</label>
-			</c:choose>	
 			</div>
 		</div>
 	</div>
@@ -167,8 +167,8 @@
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica11" type="checkbox" disabled>
 				</c:otherwise>
-				<label class="form-check-label" for="biomedica">Documento de cesión.</label>
 			</c:choose>
+			<label class="form-check-label" for="biomedica">Documento de cesión.</label>
 			</div>
 		</div>
 	</div>
@@ -182,10 +182,10 @@
 				</c:when>
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica12" type="checkbox" disabled>
-				</c:otherwise>
-				<label class="form-check-label" for="biomedica">Cuenta con un seguro que cubra los posibles daños, en caso
-					afirmativo indique compañía y condiciones de la póliza.</label>
+				</c:otherwise>				
 			</c:choose>
+			<label class="form-check-label" for="biomedica">Cuenta con un seguro que cubra los posibles daños, en caso
+					afirmativo indique compañía y condiciones de la póliza.</label>
 			</div>
 		</div>
 	</div>
@@ -200,9 +200,9 @@
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica13" type="checkbox" disabled>
 				</c:otherwise>
-				<label class="form-check-label" for="biomedica">Se realizan pruebas de tipo genético.</label>
+			</c:choose>
+			<label class="form-check-label" for="biomedica">Se realizan pruebas de tipo genético.</label>
 			</div>
-		</c:choose>
 		</div>
 	</div>
 	<br>
@@ -215,10 +215,10 @@
 				</c:when>
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica14" type="checkbox" disabled>
-				</c:otherwise>
-				<label class="form-check-label" for="biomedica">Se les informará de que su participación es voluntaria y
-					libre, así como de que pueden retirarse en todo momento.</label>
+				</c:otherwise>				
 			</c:choose>
+			<label class="form-check-label" for="biomedica">Se les informará de que su participación es voluntaria y
+					libre, así como de que pueden retirarse en todo momento.</label>
 			</div>
 		</div>
 	</div>
@@ -233,9 +233,10 @@
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica15" type="checkbox" disabled>
 				</c:otherwise>
-				<label class="form-check-label" for="biomedica">Se dará a conocer el contacto del comité de ética a todos los
-					participantes (<a href="mailto:secretaria.adjunto.vinvestigacion@upm.es">secretaria.adjunto.vinvestigacion@upm.es</a>).</label>
+				
 			</c:choose>
+			<label class="form-check-label" for="biomedica">Se dará a conocer el contacto del comité de ética a todos los
+					participantes (<a href="mailto:secretaria.adjunto.vinvestigacion@upm.es">secretaria.adjunto.vinvestigacion@upm.es</a>).</label>
 			</div>
 		</div>
 	</div>
@@ -250,8 +251,8 @@
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica16" type="checkbox" disabled>
 				</c:otherwise>
-				<label class="form-check-label" for="biomedica">Se respetará la confidencialidad.</label>
 			</c:choose>
+			<label class="form-check-label" for="biomedica">Se respetará la confidencialidad.</label>
 			</div>
 		</div>
 	</div>
@@ -278,7 +279,8 @@
 				<c:otherwise>
 					<input class="form-check-input" name="biomedica18" type="checkbox" disabled>
 				</c:otherwise>
-				<label class="form-check-label" for="biomedica">Una vez finalizado el proyecto está previsto informar de los
+			</c:choose>
+			<label class="form-check-label" for="biomedica">Una vez finalizado el proyecto está previsto informar de los
 					resultados obtenidos a los participantes del mismo.</label>
 			</div>
 		</div>
@@ -291,10 +293,10 @@
 		<div class="col-sm-12">
 			Indique el destino de las muestras a la finalizacion del estudio:
 		</div>
-		<c:if test="${biomedica19 == "destruccion"}">
+		<c:if test="${biomedica19 == 'destruccion'}">
 			<div class="col-sm-12 col-md-4">
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" name="biomedica19" type="radio" value="destruccion" checked disabled>
+					<input class="form-check-input" name="biomedica19" type="radio" checked disabled>
 					<label class="form-check-label" for="biomedica">Destrucción.</label>
 				</div>
 			</div>
@@ -338,7 +340,7 @@
 				</div>
 			</div>
 		</c:if>
-		<c:if test="${biomedica19 == "biobanco"}">
+		<c:if test="${biomedica19 == 'biobanco'}">
 			<div class="col-sm-12 col-md-4">
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" name="biomedica19" type="radio" value="destruccion" disabled>
@@ -377,15 +379,15 @@
 		<div class="col-sm-12 col-md-8">
 			<div class="form-check form-check-inline">
 			<c:choose>
-			<c:when test="${not empty biomedica18}">
-				<input class="form-check-input" name="biomedica24" type="checkbox" checked disabled>
-			</c:when>
-			<c:otherwise>
-				<input class="form-check-input" name="biomedica24" type="checkbox" disabled>
-			</c:otherwise>
-				<label class="form-check-label" for="biomedica">Se ofrecen incentivos o compensaciones a quien
-					participa.</label>
+				<c:when test="${not empty biomedica18}">
+					<input class="form-check-input" name="biomedica24" type="checkbox" checked disabled>
+				</c:when>
+				<c:otherwise>
+					<input class="form-check-input" name="biomedica24" type="checkbox" disabled>
+				</c:otherwise>
 			</c:choose>
+			<label class="form-check-label" for="biomedica">Se ofrecen incentivos o compensaciones a quien
+						participa.</label>
 			</div>
 		</div>
 	</div>
@@ -394,15 +396,15 @@
 		<div class="col-sm-12">
 			<div class="form-check form-check-inline">
 			<c:choose>
-			<c:when test="${not empty biomedica18}">
-				<input class="form-check-input" name="biomedica25" type="checkbox" checked disabled>
-			</c:when>
-			<c:otherwise>
-				<input class="form-check-input" name="biomedica25" type="checkbox" disabled>
-			</c:otherwise>
-				<label class="form-check-label" for="biomedica">Se garantiza la integridad y dignidad de las personas que
-					participan como sujetos.</label>
+				<c:when test="${not empty biomedica18}">
+					<input class="form-check-input" name="biomedica25" type="checkbox" checked disabled>
+				</c:when>
+				<c:otherwise>
+					<input class="form-check-input" name="biomedica25" type="checkbox" disabled>
+				</c:otherwise>
 			</c:choose>
+			<label class="form-check-label" for="biomedica">Se garantiza la integridad y dignidad de las personas que
+						participan como sujetos.</label>
 			</div>
 		</div>
 	</div>
@@ -411,16 +413,16 @@
 		<div class="col-sm-12">
 			<div class="form-check form-check-inline">
 			<c:choose>
-			<c:when test="${not empty biomedica18}">
-				<input class="form-check-input" name="biomedica26" type="checkbox" checked disabled>
-			</c:when>
-			<c:otherwise>
-				<input class="form-check-input" name="biomedica26" type="checkbox" disabled>
-			</c:otherwise>
-				<label class="form-check-label" for="biomedica">Las acciones sobre las personas que participan en la
-					experimentación están supervisadas por un médico u otro profesional de la salud competente y cualificado
-					apropiadamente.</label>
+				<c:when test="${not empty biomedica18}">
+					<input class="form-check-input" name="biomedica26" type="checkbox" checked disabled>
+				</c:when>
+				<c:otherwise>
+					<input class="form-check-input" name="biomedica26" type="checkbox" disabled>
+				</c:otherwise>
 			</c:choose>
+			<label class="form-check-label" for="biomedica">Las acciones sobre las personas que participan en la
+						experimentación están supervisadas por un médico u otro profesional de la salud competente y cualificado
+						apropiadamente.</label>
 			</div>
 		</div>
 	</div>
@@ -429,15 +431,15 @@
 		<div class="col-sm-12">
 			<div class="form-check form-check-inline">
 			<c:choose>
-			<c:when test="${not empty biomedica18}">
-				<input class="form-check-input" name="biomedica27" type="checkbox" checked disabled>
-			</c:when>
-			<c:otherwise>
-				<input class="form-check-input" name="biomedica27" type="checkbox" disabled>
-			</c:otherwise>
-				<label class="form-check-label" for="biomedica">El personal que participa en los procedimientos posee la
-					titulación y tiene la formación adecuada para llevar a cabo las tareas que se les encomienda.</label>
+				<c:when test="${not empty biomedica18}">
+					<input class="form-check-input" name="biomedica27" type="checkbox" checked disabled>
+				</c:when>
+				<c:otherwise>
+					<input class="form-check-input" name="biomedica27" type="checkbox" disabled>
+				</c:otherwise>
 			</c:choose>
+			<label class="form-check-label" for="biomedica">El personal que participa en los procedimientos posee la
+						titulación y tiene la formación adecuada para llevar a cabo las tareas que se les encomienda.</label>
 			</div>
 		</div>
 	</div>
@@ -446,15 +448,15 @@
 		<div class="col-sm-12">
 			<div class="form-check form-check-inline">
 			<c:choose>
-			<c:when test="${not empty biomedica18}">
-				<input class="form-check-input" name="biomedica28" type="checkbox" checked disabled>
-			</c:when>
-			<c:otherwise>
-				<input class="form-check-input" name="biomedica28" type="checkbox" disabled>
-			</c:otherwise>
-				<label class="form-check-label" for="biomedica">Poseen instalaciones idóneas para llevar a cabo los diseños
-					experimentales.</label>
+				<c:when test="${not empty biomedica18}">
+					<input class="form-check-input" name="biomedica28" type="checkbox" checked disabled>
+				</c:when>
+				<c:otherwise>
+					<input class="form-check-input" name="biomedica28" type="checkbox" disabled>
+				</c:otherwise>
 			</c:choose>
+			<label class="form-check-label" for="biomedica">Poseen instalaciones idóneas para llevar a cabo los diseños
+						experimentales.</label>
 			</div>
 		</div>
 	</div>

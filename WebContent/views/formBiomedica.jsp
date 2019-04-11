@@ -7,7 +7,7 @@
 		<div class="col-sm-12">
 			Qué se investiga, por qué, cuándo, cómo...
 			<div class="form-check form-check-inline" style="margin: 10px 0;">
-				<textarea name="biomedica0" id="nuevo-proy-textarea" cols="1996" rows="2"
+				<textarea name="biomedica0" id="nuevo-proy-textarea" cols="1996" rows="8"
 					style="width: 100%; padding: 5px;"></textarea>
 			</div>
 		</div>
@@ -20,7 +20,7 @@
 		<div class="col-sm-12">
 			Descripción de los principales objetivos que se quieren alcanzar con el uso de muestras de origen humano.
 			<div class="form-check form-check-inline" style="margin: 10px 0;">
-				<textarea name="biomedica1" id="nuevo-proy-textarea" cols="1996" rows="2"
+				<textarea name="biomedica1" id="nuevo-proy-textarea" cols="1996" rows="8"
 					style="width: 100%; padding: 5px;"></textarea>
 			</div>
 		</div>
@@ -30,7 +30,7 @@
 		<div class="col-sm-12">
 			Breve descripción de la metodología que se aplicará al trabajo de campo.
 			<div class="form-check form-check-inline" style="margin: 10px 0;">
-				<textarea name="biomedica2" id="nuevo-proy-textarea" cols="1996" rows="2"
+				<textarea name="biomedica2" id="nuevo-proy-textarea" cols="1996" rows="8"
 					style="width: 100%; padding: 5px;"></textarea>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 			¿Afecta el estudio a Mujeres gestantes o en periodo de lactancia, Menores, personas incapaces de expresar su
 			consentimiento, grupos étnicos o sociales específico?
 			<div class="form-check form-check-inline" style="margin: 10px 0;">
-				<textarea name="biomedica3" id="nuevo-proy-textarea" cols="1996" rows="2" style="width: 100%; padding: 5px;"
+				<textarea name="biomedica3" id="nuevo-proy-textarea" cols="1996" rows="4" style="width: 100%; padding: 5px;"
 					placeholder="En caso afirmativo, justifique la necesidad y especifique el protocolo establecido para garantizar el cumplimiento de todos los requisitos éticos y legales para estas circunstancias."></textarea>
 			</div>
 		</div>
@@ -56,7 +56,7 @@
 			especifique y aporte el Certificado del Comité de Ética de la Investigación de la Institución de que se trate
 			aprobando dicha experimentación
 			<div class="form-check form-check-inline" style="margin: 10px 0;">
-				<textarea name="biomedica4" id="nuevo-proy-textarea" cols="1996" rows="2"
+				<textarea name="biomedica4" id="nuevo-proy-textarea" cols="1996" rows="4"
 					style="width: 100%; padding: 5px;"></textarea>
 			</div>
 		</div>
@@ -68,7 +68,7 @@
 			sanitaria, especifique y aporte el Certificado del Comité de Ética de la Investigación de la Institución de que se
 			trate aprobando explícitamente la cesión y utilización de muestras en el proyecto:
 			<div class="form-check form-check-inline" style="margin: 10px 0;">
-				<textarea name="biomedica5" id="nuevo-proy-textarea" cols="1996" rows="2"
+				<textarea name="biomedica5" id="nuevo-proy-textarea" cols="1996" rows="4"
 					style="width: 100%; padding: 5px;"></textarea>
 			</div>
 		</div>
@@ -80,7 +80,7 @@
 			Certificado del Comité de Ética del Banco aprobando explícitamente mediante un ACUERDO DE CESIÓN, la transferencia
 			y utilización de las muestras en el proyecto.
 			<div class="form-check form-check-inline" style="margin: 10px 0;">
-				<textarea name="biomedica6" id="nuevo-proy-textarea" cols="1996" rows="2"
+				<textarea name="biomedica6" id="nuevo-proy-textarea" cols="1996" rows="4"
 					style="width: 100%; padding: 5px;"></textarea>
 			</div>
 		</div>
@@ -197,7 +197,7 @@
 			caso de que los datos sean públicos, y se informará a los participantes de cómo se respetará. Explicitar el
 			procedimiento estipulado para salvaguardar el anonimato y la confidencialidad.
 			<div class="form-check form-check-inline" style="margin: 10px 0;">
-				<textarea name="biomedica17" id="nuevo-proy-textarea" cols="1996" rows="2"
+				<textarea name="biomedica17" id="nuevo-proy-textarea" cols="1996" rows="4"
 					style="width: 100%; padding: 5px;"></textarea>
 			</div>
 		</div>
@@ -222,13 +222,13 @@
 		</div>
 		<div class="col-sm-12">
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" name="biomedica19" type="radio" value="1">
+				<input class="form-check-input" name="biomedica19" type="radio" value="destruccion">
 				<label class="form-check-label" for="biomedica">Destrucción.</label>
 			</div>
 		</div>
 		<div class="col-sm-12">
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" name="biomedica19" type="radio" value="2">
+				<input class="form-check-input" name="biomedica19" type="radio" value="coleccion">
 				<label class="form-check-label" for="biomedica">Incorporación a una colección registrada. Nombre de la
 					colección.</label>
 			</div>
@@ -239,7 +239,7 @@
 		</div>
 		<div class="col-sm-12">
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" name="biomedica19" type="radio" value="3">
+				<input class="form-check-input" name="biomedica19" type="radio" value="biobanco">
 				<label class="form-check-label" for="biomedica">Incorporación al Biobanco UPM, si es posible.</label>
 			</div>
 		</div>
@@ -249,7 +249,7 @@
 			¿Está previsto un plan para el tratamiento, la custodia y la conservación de Las muestras recogidas en el
 			trabajo de campo? En caso afirmativo, realice una breve descripción de ese tratamiento:
 			<div class="form-check form-check-inline" style="margin: 10px 0;">
-				<textarea name="biomedica23" id="nuevo-proy-textarea" cols="1996" rows="2"
+				<textarea name="biomedica23" id="nuevo-proy-textarea" cols="1996" rows="4"
 					style="width: 100%; padding: 5px;"></textarea>
 			</div>
 		</div>

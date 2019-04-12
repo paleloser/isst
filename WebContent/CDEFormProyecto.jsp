@@ -32,15 +32,23 @@
         <button class="btn btn-primary submit">Descargar Memoria</button>
         <br>
       </form>
-      <form action="AprobarFormulario" class="container">
-        <button class="btn btn-primary submit">Aprobar</button>
-      </form>
-      <form action="RevisarFormulario" class="container">
-        <button class="btn btn-secondary submit">Solicitar Info</button>
-      </form>
-      <form action="DenegarFormulario" class="container">
-        <button class="btn btn-danger submit">Denegar</button>
-      </form>
+      <div class="row justify-content-sm-start">
+        <div class="col-sm-auto">
+          <form action="AprobarFormulario" class="">
+            <button class="btn btn-primary submit">Aprobar</button>
+          </form>
+        </div>
+        <div class="col-sm-auto">
+          <form action="RevisarFormulario" class="">
+            <button class="btn btn-secondary submit">Solicitar Info</button>
+          </form>
+        </div>
+        <div class="col-sm-auto">
+          <form action="DenegarFormulario" class="">
+            <button class="btn btn-danger submit">Denegar</button>
+          </form>
+        </div>
+      </div>
     </section>
     <br>
     <jsp:include page="views/cde_footer.jsp" />

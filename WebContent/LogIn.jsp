@@ -16,54 +16,56 @@
 </head>
 
 <body id='body'>
-  <nav class="navbar navbar-expand-lg sticky-top justify-content-between">
-    <a class="navbar-brand logo" href="index">
-      GDPR
-    </a>
-  </nav>
-  <div class="content">
-    <section class="first">
-      <div class="container">
-        <div class="row justify-content-center">
-          <form class="col col-sm-12 col-md-5 col-lg-4" method="POST" action="LogIn" style="background-color: white; padding: 15px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);">
-            <h6 class="title">ACCESO</h6>
-            <div class="col"><br></div>
-            <input class="col col-md-12 col-sm-12" type="email" name="correo" placeholder="Correo" required>
-            <div class="col"><br></div>
-            <div class="input-group justify-content-between">
-              <input class="col" type="password" name="password" id="passwd"
-                placeholder="Contraseña" required>
-            </div>
-            <button class="btn btn-primary btn-sm float-right submit" type="submit">ACCEDER</button>
-          </form>
-        </div>
-      </div>
-    </section>
-    <footer class="footer content-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-4 content-center item">
-            <div class="row">
-              <div class="col-12 content-center">
-                <a class="title" href="index">GDPR</a>
+  <shiro:guest>
+    <nav class="navbar navbar-expand-lg sticky-top justify-content-between">
+      <a class="navbar-brand logo" href="index">
+        GDPR
+      </a>
+    </nav>
+    <div class="content">
+      <section class="first">
+        <div class="container">
+          <div class="row justify-content-center">
+            <form class="col col-sm-12 col-md-5 col-lg-4" method="POST" action="LogIn"
+              style="background-color: white; padding: 15px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);">
+              <h6 class="title">ACCESO</h6>
+              <div class="col"><br></div>
+              <input class="col col-md-12 col-sm-12" type="email" name="correo" placeholder="Correo" required>
+              <div class="col"><br></div>
+              <div class="input-group justify-content-between">
+                <input class="col" type="password" name="password" id="passwd" placeholder="Contraseña" required>
               </div>
-              <div class="col-12 content-center justify-content-between">
-                <a class="link" href="index#body">Inicio</a>
-                |<a class="link" href="index#info">Info</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4 content-center item">
-            <a href="https://www.upm.es"><img src="img/upm.png" alt="logo upm" height="130px"></a>
-          </div>
-          <div class="col-sm-12 col-md-4 content-center item">
-            <img src="img/cc.png" alt="copyright" height="40px">
+              <button class="btn btn-primary btn-sm float-right submit" type="submit">ACCEDER</button>
+            </form>
           </div>
         </div>
-      </div>
-    </footer>
-  </div>
-  <jsp:include page="views/scripts.jsp" />
+      </section>
+      <footer class="footer content-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-4 content-center item">
+              <div class="row">
+                <div class="col-12 content-center">
+                  <a class="title" href="index">GDPR</a>
+                </div>
+                <div class="col-12 content-center justify-content-between">
+                  <a class="link" href="index#body">Inicio</a>
+                  |<a class="link" href="index#info">Info</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-4 content-center item">
+              <a href="https://www.upm.es"><img src="img/upm.png" alt="logo upm" height="130px"></a>
+            </div>
+            <div class="col-sm-12 col-md-4 content-center item">
+              <img src="img/cc.png" alt="copyright" height="40px">
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <jsp:include page="views/scripts.jsp" />
+  </shiro:guest>
 </body>
 
 </html>

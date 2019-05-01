@@ -26,25 +26,38 @@ public class LogInServlet extends HttpServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String email = req.getParameter("correo");
     String passwd = req.getParameter("password");
-
+        
     Subject currentUser = SecurityUtils.getSubject();
+
+    // If the user is not authenticated try to do so
     if (!currentUser.isAuthenticated()) {
       UsernamePasswordToken token = new UsernamePasswordToken(email, passwd);
       try {
         currentUser.login(token);
-        if (currentUser.hasRole("mcde")) {
-          req.getSession().setAttribute("userType", "mcde");
-          resp.sendRedirect(req.getContextPath() + "/CDEOverview?email=" + currentUser.getPrincipal());
-        } else if (currentUser.hasRole("researcher")) {
-          req.getSession().setAttribute("userType", "researcher");
-          resp.sendRedirect(req.getContextPath() + "/InvestigadorOverview?email=" + currentUser.getPrincipal());
-        } else {
-          resp.sendRedirect(req.getContextPath() + "/LogIn");
-        }
       } catch (Exception e) {
-        resp.sendRedirect(req.getContextPath() + "/LogIn");
+        System.out.println("Login fallido: redireccionando a vista de login...");
+        getServletContext().getRequestDispatcher("/LogIn.jsp").forward(req, resp);
+        return;
       }
-    } else
-      resp.sendRedirect(req.getContextPath() + "/LogIn");
+    } 
+    
+    // If the user IS authenticated...
+    if (currentUser.hasRole("mcde")) {
+      // Set primary session attributes
+      req.getSession().setAttribute("userType", "mcde");
+      req.getSession().setAttribute("email", currentUser.getPrincipal());
+
+      System.out.println("Usuario reconocido: redireccionando a servlet de CDE...");
+      resp.sendRedirect(req.getContextPath() + "/CDEOverview");
+    } else if (currentUser.hasRole("investigador")) {
+      // Set primary session attributes
+      req.getSession().setAttribute("userType", "investigador");
+      req.getSession().setAttribute("email", currentUser.getPrincipal());
+
+      System.out.println("Usuario reconocido: redireccionando a servlet de Investigador...");
+      resp.sendRedirect(req.getContextPath() + "/InvestigadorOverview");
+    } else {
+      getServletContext().getRequestDispatcher("/LogIn.jsp").forward(req, resp);
+    }
   }
 }

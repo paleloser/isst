@@ -8,30 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet({ "/Index", "/", "/index" })
-public class IndexServlet extends HttpServlet {
+@WebServlet({ "/CDEOverview", })
+public class CDEOverview extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
     String userType = (String) req.getSession().getAttribute("userType");
+    String email = (String) req.getSession().getAttribute("email");
     
-    if (userType == null) {
+    // If someone unknown is GETing the path we redirect him to login
+    if (userType == null || email == null) 
       getServletContext().getRequestDispatcher("/Index.jsp").forward(req, resp);
-      return;
-    }
 
-    switch (userType) {
-      case "cde":
-        resp.sendRedirect(req.getContextPath() + "/CDEOverview");
-        break;
-      case "investigador":
-        resp.sendRedirect(req.getContextPath() + "/InvestigadorOverview");
-        break;
-      default:
-        getServletContext().getRequestDispatcher("/Index.jsp").forward(req, resp);
-        break;
-    }
+    // If the person is a researcher then we redirect him to his page
+    if (userType == "investigador") 
+      resp.sendRedirect(req.getContextPath() + "/InvestigadorOverview");
+
+    getServletContext().getRequestDispatcher("/CDEOverview.jsp").forward(req, resp);
   }
   
 }

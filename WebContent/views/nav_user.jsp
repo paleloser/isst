@@ -10,7 +10,7 @@
   </button>
   <ul class="nav collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <li class="nav-item">
-      <a class="nav-link" href="Proyectos">Mis Casos</a>
+      <a class="nav-link" href="InvestigadorOverview">Mis Casos</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="NuevoProyecto" data-toggle="tooltip" data-placement="top" title="Subir proyecto">

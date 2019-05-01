@@ -13,7 +13,7 @@
       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Nombre de Proyecto #N -</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="CDEGeneral">Casos pendientes</a>
+      <a class="nav-link" href="CDEOverview">Casos pendientes</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="CDEPersonal">Mis Casos</a>

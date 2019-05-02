@@ -42,11 +42,11 @@ public class UsuarioDAOImplementation implements UsuarioDAO{
 	}
 	
 	@Override
-	public Usuario read(String userName) {
+	public Usuario read(String email) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			Usuario us = session.load(Usuario.class,  userName);
+			Usuario us = session.load(Usuario.class,  email);
 			session.getTransaction().commit();
 			return us;
 		} catch(Exception e) {

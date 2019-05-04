@@ -49,10 +49,15 @@ public class EnviarFormulario extends HttpServlet {
 		
 		String titulo = req.getSession().getAttribute("titulo").toString();
 		String fecha = req.getSession().getAttribute("fecha").toString();
+		String email = (String) req.getSession().getAttribute("email");
+		
+		UsuarioDAO idao = UsuarioDAOImplementation.getInstance();
+		Usuario investigador = idao.read(email);
 		
 		Solicitud solicitud = new Solicitud();
 		solicitud.setFecha(fecha);
 		solicitud.setTitulo(titulo);
+		solicitud.setInvestigador(investigador);
 		
 		Part filePart = req.getPart( "file" );
 		InputStream fileContent = filePart.getInputStream();
@@ -102,9 +107,11 @@ public class EnviarFormulario extends HttpServlet {
     req.getSession().removeAttribute("titulo");
     req.getSession().removeAttribute("fecha");
     req.getSession().removeAttribute("areas");
+    req.getSession().setAttribute("email", solicitud.getInvestigador().getEmail());
+    resp.sendRedirect(req.getContextPath() + "/InvestigadorOverview");
     // Following lines are written only to test the CdE view
-		req.setAttribute("areas", areas);
-		req.setAttribute("titulo", solicitud.getTitulo());
-		getServletContext().getRequestDispatcher("/CDEFormProyecto.jsp").forward(req, resp);
+		//req.setAttribute("areas", areas);
+		//req.setAttribute("titulo", solicitud.getTitulo());
+		//getServletContext().getRequestDispatcher("/CDEFormProyecto.jsp").forward(req, resp);
   }
 }

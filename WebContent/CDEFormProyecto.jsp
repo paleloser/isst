@@ -34,17 +34,23 @@
       </form>
       <div class="row justify-content-sm-start">
         <div class="col-sm-auto">
-          <form action="AprobarFormulario" class="">
+          <form action="ProcesarSolicitud" method="POST" class="">
+          <input type="hidden" name="estado" value="2"/>
+          <input type="hidden" name="titulo" value="${titulo}"/>
             <button class="btn btn-primary submit">Aprobar</button>
           </form>
         </div>
         <div class="col-sm-auto">
-          <form action="RevisarFormulario" class="">
+          <form action="ProcesarSolicitud" method="POST" class="">
+          	<input type="hidden" name="estado" value="4"/>
+         	 <input type="hidden" name="titulo" value="${titulo}"/>
             <button class="btn btn-secondary submit">Solicitar Info</button>
           </form>
         </div>
         <div class="col-sm-auto">
-          <form action="DenegarFormulario" class="">
+          <form action="ProcesarSolicitud" method="POST" class="">
+          	<input type="hidden" name="estado" value="3"/>
+          	<input type="hidden" name="titulo" value="${titulo}"/>
             <button class="btn btn-danger submit">Denegar</button>
           </form>
         </div>

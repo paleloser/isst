@@ -30,38 +30,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Nombre del caso #1</td>
-            <td class="d-none d-sm-table-cell">Nombre del investigador #1</td>
-            <td class="">02/03/2018</td>
-            <td class="open-case d-flex flex-row justify-content-end">
-              <a href="/coe_proyecto_pen.html"><i class="material-icons">chevron_right</i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Nombre del caso #2</td>
-            <td class="d-none d-sm-table-cell">Nombre del investigador #2</td>
-            <td class="">14/06/2018</td>
-            <td class="open-case d-flex flex-row justify-content-end">
-              <a href="/coe_proyecto_pen.html"><i class="material-icons">chevron_right</i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Nombre del caso #3</td>
-            <td class="d-none d-sm-table-cell">Nombre del investigador #3</td>
-            <td class="">10/01/2019</td>
-            <td class="open-case d-flex flex-row justify-content-end">
-              <a href="/coe_proyecto_pen.html"><i class="material-icons">chevron_right</i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Nombre del caso #4</td>
-            <td class="d-none d-sm-table-cell">Nombre del investigador #4</td>
-            <td class="">21/02/2019</td>
-            <td class="open-case d-flex flex-row justify-content-end">
-              <a href="/coe_proyecto_pen.html"><i class="material-icons">chevron_right</i></a>
-            </td>
-          </tr>
+        	<c:forEach items="${solicitudes}" var="sol">
+        		<tr>
+        			<td>${sol.titulo}</td>
+        			<td class="d-none d-sm-table-cell">${sol.investigador}</td>
+        			<td class="d-none d-sm-table-cell">${sol.fecha}</td>
+        			<td class="open-case d-flex flex-row justify-content-end">
+        				<form method="post" action="MuestraSolicitud">
+        					<input type="hidden" name="titulo" value="${sol.titulo}"/>
+              				<button type="submit"><i class="material-icons">chevron_right</i></button>
+              			</form>
+            		</td>
+        		</tr>
+        	</c:forEach>
         </tbody>
       </table>
       <small>

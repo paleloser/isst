@@ -21,47 +21,42 @@
           <tr>
             <th scope="col" class="">Nombre</th>
             <th scope="col" class="d-none d-sm-table-cell">Subido</th>
-            <th scope="col" class="d-none d-sm-table-cell">Actualizado</th>
             <th scope="col">Estado</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Nombre del caso #1</td>
-            <td class="d-none d-sm-table-cell">01/02/2017</td>
-            <td class="d-none d-sm-table-cell">06/02/2017</td>
-            <td class="text-success">Aprobado</td>
-            <td class="open-case"><a href="/proyecto_ok.html"><i class="material-icons">chevron_right</i></a></td>
-          </tr>
-          <tr>
-            <td>Nombre del caso #2</td>
-            <td class="d-none d-sm-table-cell">02/03/2018</td>
-            <td class="d-none d-sm-table-cell">07/03/2018</td>
-            <td class="text-primary">En proceso</td>
-            <td class="open-case"><a href="/proyecto_in.html"><i class="material-icons">chevron_right</i></a></td>
-          </tr>
-          <tr>
-            <td>Nombre del caso #3</td>
-            <td class="d-none d-sm-table-cell">14/06/2018</td>
-            <td class="d-none d-sm-table-cell">19/06/2018</td>
-            <td class="text-warning">Falta de datos</td>
-            <td class="open-case"><a href="/proyecto_warn.html"><i class="material-icons">chevron_right</i></a></td>
-          </tr>
-          <tr>
-            <td>Nombre del caso #4</td>
-            <td class="d-none d-sm-table-cell">10/01/2019</td>
-            <td class="d-none d-sm-table-cell">15/01/2019</td>
-            <td class="text-danger">Denegado</td>
-            <td class="open-case"><a href="/proyecto_err.html"><i class="material-icons">chevron_right</i></a></td>
-          </tr>
-          <tr>
-            <td>Nombre del caso #5</td>
-            <td class="d-none d-sm-table-cell">21/02/2019</td>
-            <td class="d-none d-sm-table-cell">-</td>
-            <td class="text-secondary">Pendiente</td>
-            <td class="open-case"><a href="/proyecto_pen.html"><i class="material-icons">chevron_right</i></a></td>
-          </tr>
+        <c:forEach items="${solicitudes}" var="sol">
+        	<tr>
+        		<td>${sol.titulo}</td>
+        		<td class="d-none d-sm-table-cell">${sol.fecha}</td>
+        		<c:if test="${sol.estado == 1}">
+        				<td class="text-primary">
+							En proceso
+						</td>
+					</c:if>
+					<c:if test="${sol.estado == 2}">
+						<td class="text-success">
+							Aprobado
+							</td>
+					</c:if>
+					<c:if test="${sol.estado == 3}">
+						<td class="text-danger">
+							Denegado
+							</td>
+					</c:if>
+					<c:if test="${sol.estado == 4}">
+						<td class="text-warning">
+							Se requiere más información
+							</td>
+					</c:if>
+        		<td class="open-case">
+        			<form method="post" action="SERVLETQUEMUESTRASOLICITUD">
+        				<input type="hidden" name="solicitud" value="${sol.titulo}"/>
+              			<button type="submit"><i class="material-icons">chevron_right</i></button>
+              		</form></td>
+        	</tr>
+        </c:forEach>
         </tbody>
       </table>
     </section>

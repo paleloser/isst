@@ -14,8 +14,6 @@ import java.util.Collection;
 public class Usuario implements Serializable {
 	
 	@Id
-	private String userName;
-	
 	private String email;
 	private String password;
 	private String DNI;
@@ -30,7 +28,7 @@ public class Usuario implements Serializable {
 	@OneToMany(mappedBy = "miembroCDE")@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<Solicitud> solicitudes;                   //Solicitudes a revisar como miembroCDE
 	
-	@OneToMany(mappedBy = "userName")@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "email")@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<Especialidades> especialidades;            //Especialidades como miembroCDE
 	
 	
@@ -49,9 +47,7 @@ public class Usuario implements Serializable {
 	public void setDNI (String DNI){
 		this.DNI = DNI;
 	}
-	public void setUserName (String userName){
-		this.userName = userName;
-	}
+	
 	public void setName (String name){
 		this.name = name;
 	}
@@ -81,31 +77,28 @@ public class Usuario implements Serializable {
 	public String getEmail (){
 		return email;
 	}
-	public String setPassword (){
+	public String getPassword (){
 		return password;
 	}
-	public String setDNI (){
+	public String getDNI (){
 		return DNI;
 	}
-	public String setUserName (){
-		return userName;
-	}
-	public String setName (){
+	public String getName (){
 		return name;
 	}
-	public String setSurname (){
+	public String getSurname (){
 		return surname;
 	}
-	public String setCdi (){
+	public String getCdi (){
 		return cdi;
 	}
-	public boolean setMcde (){
+	public boolean getMcde (){
 		return mcde;
 	}
-	public Collection<Solicitud> setMisSolicitudes (){
+	public Collection<Solicitud> getMisSolicitudes (){
 		return misSolicitudes;
 	}
-	public Collection<Solicitud> setSolicitudes (){
+	public Collection<Solicitud> getSolicitudes (){
 		return solicitudes;
 	}
 	public Collection<Especialidades> getEspecialidades (){

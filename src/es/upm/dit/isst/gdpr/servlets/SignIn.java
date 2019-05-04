@@ -27,8 +27,6 @@ public class SignIn extends HttpServlet {
     usuario.setName(nombre);
     usuario.setSurname(apellidos);
     usuario.setEmail(correo);
-    // TODO: delete following line when the model is fixed
-    usuario.setUserName(correo);
     usuario.setDNI(dni);
     usuario.setMcde(false);
     usuario.setCdi("");

@@ -13,7 +13,7 @@ public class Especialidades implements Serializable {
 	
 	@Id
 	@ManyToOne(targetEntity = Usuario.class)
-	private String userName;
+	private String email;
 	
 	private boolean TAM;    //Tecnologias Agroforestales y Medioambientales
 	private boolean TAICC;  //Tecnologias de la Arquitectura e Ingenieria de caminos y civil
@@ -32,12 +32,12 @@ public class Especialidades implements Serializable {
 		this.id = id;
 	}
 	 */
-	public String getUserName() {
-		return userName;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public boolean getTAM() {

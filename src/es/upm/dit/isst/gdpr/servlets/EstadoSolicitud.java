@@ -22,7 +22,7 @@ public class EstadoSolicitud extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         SolicitudDAO sdao = SolicitudDAOImplementation.getInstance();
-        req.setAttribute("sdao_id", sdao.read(req.getParameter("email")));
+        req.setAttribute("sdao_id", sdao.read(req.getParameter("solicitud")));
 
 		getServletContext().getRequestDispatcher( "/Proyecto.jsp" ).forward( req, resp );
 		

@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="GDPR - ISST G22 | Proyecto">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  
+
   <title>GDPR - ISST G22 | Nombre Proyecto #</title>
   <jsp:include page="views/styles.jsp" />
 </head>
@@ -24,15 +24,18 @@
           <h4>${sdao_id.titulo}</h4>
         </div>
         <div class="col-sm-12 col-md-6 d-flex justify-content-end">
-            <c:if test="${sdao_id.estado == 1}">
-                <h6><span class="badge badge-success">Aprobado</span></h6>
-            </c:if>
-            <c:if test="${sdao_id.estado == 2}">
-                <h6><span class="badge badge-secondary">Pendiente</span></h6>
-            </c:if>
-            <c:if test="${sdao_id.estado == 3}">
-                <h6><span class="badge badge-danger">Danger</span></h6>
-            </c:if>
+          <c:if test="${sdao_id.estado == 1}">
+            <h6><span class="badge badge-primary">En proceso</span></h6>
+          </c:if>
+          <c:if test="${sdao_id.estado == 2}">
+            <h6><span class="badge badge-success">Aprobado</span></h6>
+          </c:if>
+          <c:if test="${sdao_id.estado == 3}">
+            <h6><span class="badge badge-danger">Danger</span></h6>
+          </c:if>
+          <c:if test="${sdao_id.estado == 4}">
+            <h6><span class="badge badge-warning">Se requiere info</span></h6>
+          </c:if>
         </div>
       </div>
       <hr>

@@ -43,11 +43,8 @@ public class InvestigadorOverview extends HttpServlet {
     	solicitudIncompleta.setFecha(sol.getFecha());
     	solicitudIncompleta.setEstado(sol.getEstado());
     	solicitudesFinal.add(solicitudIncompleta);
-    	
     }
     
-    
-   
     req.setAttribute("solicitudes", solicitudesFinal);
     
     getServletContext().getRequestDispatcher("/InvestigadorOverview.jsp").forward(req, resp);

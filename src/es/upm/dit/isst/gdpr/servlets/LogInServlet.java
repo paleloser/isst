@@ -57,6 +57,7 @@ public class LogInServlet extends HttpServlet {
       System.out.println("Usuario reconocido: redireccionando a servlet de Investigador...");
       resp.sendRedirect(req.getContextPath() + "/InvestigadorOverview");
     } else {
+      System.out.println("Usuario no reconocido: redireccionando a servlet de LogIn...");
       getServletContext().getRequestDispatcher("/LogIn.jsp").forward(req, resp);
     }
   }

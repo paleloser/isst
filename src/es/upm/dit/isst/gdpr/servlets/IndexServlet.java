@@ -22,7 +22,7 @@ public class IndexServlet extends HttpServlet {
     }
 
     switch (userType) {
-      case "cde":
+      case "mcde":
         resp.sendRedirect(req.getContextPath() + "/CDEOverview");
         break;
       case "investigador":

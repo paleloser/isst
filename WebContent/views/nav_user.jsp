@@ -20,7 +20,7 @@
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        <img src="${pageContext.request.contextPath}/img/profile.jpg" height="40px" style="border-radius: 100%;">
+        <img src="${pageContext.request.contextPath}/img/profile.png" height="40px" style="border-radius: 100%;">
       </a>
       <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="Proyectos">Mis Casos</a>

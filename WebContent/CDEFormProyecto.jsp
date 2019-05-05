@@ -35,25 +35,28 @@
       <div class="row justify-content-sm-start">
         <div class="col-sm-auto">
           <form action="ProcesarSolicitud" method="POST" class="">
-          <input type="hidden" name="estado" value="2"/>
-          <input type="hidden" name="titulo" value="${titulo}"/>
+            <input type="hidden" name="estado" value="2" />
+            <input type="hidden" name="titulo" value="${titulo}" />
             <button class="btn btn-primary submit">Aprobar</button>
           </form>
         </div>
         <div class="col-sm-auto">
           <form action="ProcesarSolicitud" method="POST" class="">
-          	<input type="hidden" name="estado" value="4"/>
-         	 <input type="hidden" name="titulo" value="${titulo}"/>
-            <button class="btn btn-secondary submit">Solicitar Info</button>
-          </form>
-        </div>
-        <div class="col-sm-auto">
-          <form action="ProcesarSolicitud" method="POST" class="">
-          	<input type="hidden" name="estado" value="3"/>
-          	<input type="hidden" name="titulo" value="${titulo}"/>
+            <input type="hidden" name="estado" value="3" />
+            <input type="hidden" name="titulo" value="${titulo}" />
             <button class="btn btn-danger submit">Denegar</button>
           </form>
         </div>
+      </div>
+      <div class="col-sm-auto">
+        <form action="ProcesarSolicitud" method="POST" class="">
+          <div class="row" style="padding: 25px;">
+            <textarea name="anotacion" cols="10000" rows="10" placeholder="Introduzca aqui los conceptos que faltan por especificar."></textarea>
+          </div>
+          <input type="hidden" name="estado" value="4" />
+          <input type="hidden" name="titulo" value="${titulo}" />
+          <button class="btn btn-secondary submit">Solicitar Info</button>
+        </form>
       </div>
     </section>
     <br>

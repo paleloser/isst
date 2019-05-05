@@ -43,6 +43,11 @@ public class LogInServlet extends HttpServlet {
     
     // If the user IS authenticated...
     if (currentUser.hasRole("mcde")) {
+      if (!email.equals("admin@cde.upm.es")) {
+        req.getSession().setAttribute("isAdmin", false);
+      } else {
+        req.getSession().setAttribute("isAdmin", true);
+      }
       // Set primary session attributes
       req.getSession().setAttribute("userType", "mcde");
       req.getSession().setAttribute("email", currentUser.getPrincipal());

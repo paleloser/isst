@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<c:set var="req" value="${pageContext.request}" />
+<c:set var="url">${req.requestURL}</c:set>
+<c:set var="uri" value="${req.requestURI}" />
 <!DOCTYPE html>
 <html>
 
@@ -22,9 +25,10 @@
       <hr>
       <p>${token}</p>
       <hr>
-      <p class="text.justify"
-        >En caso de que el token se haya generado correctamente, la url para poder registrarse como miembro del Comité de Ética de la página web será:
-        <a href="#">http://www.gdpr.es/RegistroCDE?t=&lt;token&gt;</a>
+      <p class="text.justify">
+        En caso de que el token se haya generado correctamente, la url para poder registrarse como
+        miembro del Comité de Ética de la página web será:
+        <b>${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/RegistroCDE?t=&lt;token&gt;</b>
       </p>
     </section>
     <jsp:include page="views/cde_footer.jsp" />

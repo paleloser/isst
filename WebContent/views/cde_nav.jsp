@@ -12,6 +12,11 @@
     <li class="nav-item">
       <a class="nav-link" href="CDEOverview">Mis Casos</a>
     </li>
+    <li class="nav-item">
+      <form action="RegistroCDE" method="POST">
+        <button type="submit" class="icon-button nav-link">Generar Token</button>
+      </form>
+    </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">

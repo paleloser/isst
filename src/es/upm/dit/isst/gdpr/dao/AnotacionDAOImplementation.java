@@ -138,7 +138,7 @@ public class AnotacionDAOImplementation implements AnotacionDAO {
 
       session.beginTransaction();
       
-      Query query = session.createQuery("from Anotacion where solicitud_titulo = :titulo");
+      Query query = session.createQuery("from Anotacion where solicitud_titulo = :titulo order by dia");
       query.setParameter("titulo", solicitud.getTitulo());
       solicitudes = query.list();
       

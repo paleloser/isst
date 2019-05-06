@@ -26,7 +26,7 @@
       <section class="first">
         <div class="container">
           <div class="row justify-content-center">
-            <form class="col col-sm-12 col-md-5 col-lg-4" method="POST" action="SignInCDE"
+            <form class="col col-sm-12 col-md-6 col-lg-5" method="POST" action="SignInCDE"
               style="background-color: white; padding: 15px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);">
               <h6 class="title">REGISTRO MIEMBRO CDE UPM</h6>
               <input type="text" name="token" value="${token}" hidden>
@@ -44,6 +44,22 @@
                   placeholder="Contraseña" required>
                 <div class="input-group-append content-center">
                   <i class="material-icons" id="togglePasswd">visibility</i>
+                </div>
+              </div>
+              <div class="col"><br></div>
+              <div class="col"><b>Áreas de especialidad</b></div>
+              <div class="col"><br></div>
+              <div class="col row">
+                <div class="col-10">Protección de datos personales</div>
+                <div class="col-2">
+                  <input class="form-check-input" type="checkbox" name="personal" value="1">
+                </div>
+              </div>
+              <div class="col"><br></div>
+              <div class="col row">
+                <div class="col-10">Investigación biomédica con humanos</div>
+                <div class="col-2">
+                  <input class="form-check-input" type="checkbox" name="biomedica" value="1">
                 </div>
               </div>
               <div class="col"><br></div>

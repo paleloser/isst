@@ -30,6 +30,7 @@ public class SignIn extends HttpServlet {
     usuario.setDNI(dni);
     usuario.setMcde(false);
     usuario.setCdi("");
+    usuario.setEspecialidades("");
     usuario.setPassword(new Sha256Hash(password).toString());
 
     UsuarioDAO udao = UsuarioDAOImplementation.getInstance();

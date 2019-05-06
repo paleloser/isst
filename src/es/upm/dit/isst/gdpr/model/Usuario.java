@@ -28,8 +28,10 @@ public class Usuario implements Serializable {
 	@OneToMany(mappedBy = "miembroCDE")@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<Solicitud> solicitudes;                   //Solicitudes a revisar como miembroCDE
 	
-	@OneToMany(mappedBy = "email")@LazyCollection(LazyCollectionOption.FALSE)
-	private Collection<Especialidades> especialidades;            //Especialidades como miembroCDE
+	// @OneToMany(mappedBy = "email")@LazyCollection(LazyCollectionOption.FALSE)
+	// private Collection<Especialidades> especialidades;            //Especialidades como miembroCDE
+
+	private String especialidades;
 	
 	
 	@OneToMany(mappedBy = "email", fetch = FetchType.EAGER)
@@ -66,7 +68,7 @@ public class Usuario implements Serializable {
 	public void setSolicitudes (Collection<Solicitud> solicitudes){
 		this.solicitudes = solicitudes;
 	}
-	public void setEspecialidades (Collection<Especialidades> especialidades){
+	public void setEspecialidades (String especialidades){
 		this.especialidades = especialidades;
 	}
 	
@@ -101,7 +103,7 @@ public class Usuario implements Serializable {
 	public Collection<Solicitud> getSolicitudes (){
 		return solicitudes;
 	}
-	public Collection<Especialidades> getEspecialidades (){
+	public String getEspecialidades (){
 		return especialidades;
 	}
 	

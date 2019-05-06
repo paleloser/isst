@@ -49,6 +49,16 @@ public class SignInCDE extends HttpServlet {
     usuario.setCdi("");
     usuario.setPassword(new Sha256Hash(password).toString());
 
+    String especialidades = "";
+
+    if (req.getParameter("personal") != null)
+      especialidades += "personal;";
+
+    if (req.getParameter("biomedica") != null)
+      especialidades += "biomedica";
+
+    usuario.setEspecialidades(especialidades);
+
     UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
     udao.create(usuario);
 

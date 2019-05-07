@@ -49,6 +49,7 @@ public class MuestraSolicitud extends HttpServlet {
 		}
 		req.getSession().setAttribute("titulo", titulo);
 		req.setAttribute("areas", areas);
+		req.setAttribute("estado", sol.getEstado());
 		getServletContext().getRequestDispatcher( "/CDEFormProyecto.jsp" ).forward( req, resp );
 	}
 }

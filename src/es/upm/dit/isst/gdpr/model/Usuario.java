@@ -34,7 +34,7 @@ public class Usuario implements Serializable {
 	private String especialidades;
 	
 	
-	@OneToMany(mappedBy = "email", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private Collection<Notificacion> notificaciones;
 	
 	public Usuario() {}

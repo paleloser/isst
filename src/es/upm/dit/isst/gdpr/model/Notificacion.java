@@ -18,7 +18,7 @@ public class Notificacion implements Serializable{
 	private int id;
 	
 	@ManyToOne(targetEntity = Usuario.class)
-	private String email;
+	private Usuario usuario;
 	
 	private String asunto;
 	private String contenido;
@@ -35,12 +35,12 @@ public class Notificacion implements Serializable{
 		this.id = id;
 	}
 
-	public String getEmail() {
-		return email;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getAsunto() {

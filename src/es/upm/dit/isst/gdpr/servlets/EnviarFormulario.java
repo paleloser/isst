@@ -33,13 +33,13 @@ import es.upm.dit.isst.gdpr.model.Usuario;
 public class EnviarFormulario extends HttpServlet {
 
   private final String[] AREAS = { "personal", "biomedica" };
-  
+
   private String capitalize(final String line) {
     return Character.toUpperCase(line.charAt(0)) + line.substring(1);
   }
-  
+
   Random rand = new Random();
-  
+
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
   }
@@ -96,18 +96,10 @@ public class EnviarFormulario extends HttpServlet {
         }
       }
     }
-    
+
     solicitud.setForm(parameters);
     solicitud.setEstado(1);
     solicitud = asignarMCDE(areas, solicitud);
-    
-    // TODO En el siguiente Sprint-- Añadir investigadores y miembroCDE a la
-    // solicitud
-    // UsuarioDAO usDAO = UsuarioDAOImplementation.getInstance();
-    // Usuario alex=usDAO.read("alex");
-    // Usuario paco=usDAO.read("paco");
-    // solicitud.setInvestigador(alex);
-    // solicitud.setMiembroCDE(paco);
 
     SolicitudDAO solDAO = SolicitudDAOImplementation.getInstance();
     solDAO.create(solicitud);
@@ -118,87 +110,94 @@ public class EnviarFormulario extends HttpServlet {
     req.getSession().removeAttribute("areas");
     req.getSession().setAttribute("email", solicitud.getInvestigador().getEmail());
     resp.sendRedirect(req.getContextPath() + "/InvestigadorOverview");
-    // Following lines are written only to test the CdE view
-    // req.setAttribute("areas", areas);
-    // req.setAttribute("titulo", solicitud.getTitulo());
-    // getServletContext().getRequestDispatcher("/CDEFormProyecto.jsp").forward(req,
-    // resp);
   }
+
   private Solicitud asignarMCDE(ArrayList<String> especialidades, Solicitud solicitud) {
-	  
-	  Usuario mcde;
-	  Collection<Usuario> mcdes = new ArrayList<Usuario>();
-	  ArrayList<Usuario> mcdeFinal = new ArrayList<Usuario>();
-	  Collection<Usuario> users = new ArrayList<Usuario>();
-	  int min = Integer.MAX_VALUE;
-	  
-	  UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
-	  users = udao.readAll();
-	  
-	  NotificacionDAO ndao = NotificacionDAOImplementation.getInstance();
-	  
-	//Comprobar las especialidades de la solicitud y despues hacer una lista con los mcde adecuados.
-	  for(Usuario user : users) {
-		  if(user.getMcde()) {
-			  if(especialidades.size()==1) {
-				  if((user.getEspecialidades().split(";").length==2)||(user.getEspecialidades().split(";")[0]== "")) {
-					  mcdes.add(user);
-					  if(user.getSolicitudes().size()<min) {
-						  min = user.getSolicitudes().size();
-					  }
-				  } else {
-					  if(user.getEspecialidades().split(";")[0] == especialidades.get(0)) {
-						  mcdes.add(user);
-						  if(user.getSolicitudes().size()<min) {
-							  min = user.getSolicitudes().size();
-						  }
-					  }
-				  }
-			  } else {
-				  mcdes.add(user);
-				  if(user.getSolicitudes().size()<min) {
-					  min = user.getSolicitudes().size();
-				  }
-			  }
-			  
-		  }
-	  }
-	 
-	  //Buscar los mcde con menos solicitudes
-	  for(Usuario amcde : mcdes) {
-		  if(amcde.getSolicitudes().size()==min) {
-			  mcdeFinal.add(amcde);
-		  }
-	  }
-	  //Asignar la solicitud al que menos tenga o a uno aleatorio dentro de esto si es m�s de uno
-	  if (mcdeFinal.size()>1) {
-		  int n = rand.nextInt(mcdeFinal.size());
-		  mcde = mcdeFinal.get(n);
-	  } else {
-		  mcde = mcdeFinal.get(0);
-	  }
-	  
-	  //Asignarlo al mcde y enviarle un email
-	  Collection<Solicitud> soli = mcde.getSolicitudes();
-	  soli.add(solicitud);
-	  mcde.setSolicitudes(soli);
-	  udao.update(mcde);
-	  solicitud.setMiembroCDE(mcde);
-	  
-	  String emailMCDE = mcde.getEmail();
-	  String asunto = "Se le ha asignado un nuevo proyecto";
-	  String cuerpo = "Se le ha asginado un nuevo proyecto titulado " + solicitud.getTitulo() + " creado por " + solicitud.getInvestigador().getName()+".";
-	  
-	  Notificacion notificacion = new Notificacion();
-	  notificacion.setEmail(emailMCDE);
-	  notificacion.setAsunto(asunto);
-	  notificacion.setContenido(cuerpo);
-	  ndao.create(notificacion);
-	  
-	  EmailHandler automail = EmailHandler.getInstance();
-	  automail.sendEmail(emailMCDE, asunto, cuerpo);
-	  
-	  return solicitud;
-	  
+
+    Usuario mcde;
+    Collection<Usuario> mcdes = new ArrayList<Usuario>();
+    ArrayList<Usuario> mcdeFinal = new ArrayList<Usuario>();
+    Collection<Usuario> users = new ArrayList<Usuario>();
+    int min = Integer.MAX_VALUE;
+
+    UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
+    users = udao.readAll();
+
+    NotificacionDAO ndao = NotificacionDAOImplementation.getInstance();
+
+    // Comprobar las especialidades de la solicitud y despues hacer una lista con
+    // los mcde adecuados.
+    for (Usuario user : users) {
+      if (user.getMcde()) {
+        if (especialidades.size() == 1) {
+          if (user.getEspecialidades().split(";").length == 2) {
+            mcdes.add(user);
+            if (user.getSolicitudes().size() < min) {
+              min = user.getSolicitudes().size();
+            }
+          } else {
+            if (user.getEspecialidades().split(";")[0].trim().equals(especialidades.get(0).toUpperCase().trim())) {
+              mcdes.add(user);
+              if (user.getSolicitudes().size() < min) {
+                min = user.getSolicitudes().size();
+              }
+            }
+          }
+        } else if (especialidades.size() == 2) {
+          if ((user.getEspecialidades().split(";").length == 2)) {
+            mcdes.add(user);
+            if (user.getSolicitudes().size() < min) {
+              min = user.getSolicitudes().size();
+            }
+          }
+
+        } else {
+          mcdes.add(user);
+          if (user.getSolicitudes().size() < min) {
+            min = user.getSolicitudes().size();
+          }
+        }
+
+      }
+    }
+
+    // Buscar los mcde con menos solicitudes
+    for (Usuario amcde : mcdes) {
+      if (amcde.getSolicitudes().size() == min) {
+        mcdeFinal.add(amcde);
+      }
+    }
+    // Asignar la solicitud al que menos tenga o a uno aleatorio dentro de esto si
+    // es m�s de uno
+    if (mcdeFinal.size() > 1) {
+      int n = rand.nextInt(mcdeFinal.size());
+      mcde = mcdeFinal.get(n);
+    } else {
+      mcde = mcdeFinal.get(0);
+    }
+
+    // Asignarlo al mcde y enviarle un email
+    Collection<Solicitud> soli = mcde.getSolicitudes();
+    soli.add(solicitud);
+    mcde.setSolicitudes(soli);
+    udao.update(mcde);
+    solicitud.setMiembroCDE(mcde);
+
+    String emailMCDE = mcde.getEmail();
+    String asunto = "Se le ha asignado un nuevo proyecto";
+    String cuerpo = "Se le ha asginado un nuevo proyecto titulado " + solicitud.getTitulo() + " creado por "
+        + solicitud.getInvestigador().getName() + " " + solicitud.getInvestigador().getSurname() + ".";
+
+    Notificacion notificacion = new Notificacion();
+    notificacion.setUsuario(mcde);
+    notificacion.setAsunto(asunto);
+    notificacion.setContenido(cuerpo);
+    ndao.create(notificacion);
+
+    EmailHandler automail = EmailHandler.getInstance();
+    automail.sendEmail(emailMCDE, asunto, cuerpo);
+
+    return solicitud;
+
   }
 }

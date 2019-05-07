@@ -27,7 +27,7 @@
         <jsp:include page="views/cde_form${area}.jsp" />
         <br>
       </c:forEach>
-      <form class="container" action="ServirInvestigacionServlet" method="POST">
+      <form class="container" action="ServirInvestigacionServlet" method="POST" target="_blank">
         <input type="text" name="titulo" value="${titulo}" hidden>
         <button class="btn btn-primary submit">Descargar Memoria</button>
         <br>

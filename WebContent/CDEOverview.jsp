@@ -45,9 +45,6 @@
         	</c:forEach>
         </tbody>
       </table>
-      <small>
-        <div><i class="material-icons" style="font-size: 14pt;">chevron_right</i>&nbsp; Auto-asignar caso de investigación.</div>
-      </small>
     </section>
     <jsp:include page="views/cde_footer.jsp" />
   </div>

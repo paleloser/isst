@@ -63,7 +63,7 @@
                 </div>
               </div>
               <div class="col"><br></div>
-              <button class="btn btn-primary btn-sm float-right submit" type="submit">ACCEDER</button>
+              <button class="btn btn-primary btn-sm float-right submit" id="submitform" type="submit">ACCEDER</button>
             </form>
           </div>
         </div>
@@ -93,6 +93,7 @@
       </footer>
     </div>
     <jsp:include page="views/scripts.jsp" />
+    <script src="js/checkbox.js"></script>
   </shiro:guest>
 </body>
 

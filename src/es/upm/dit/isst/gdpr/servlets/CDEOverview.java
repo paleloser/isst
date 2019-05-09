@@ -42,6 +42,7 @@ public class CDEOverview extends HttpServlet {
     	solicitudIncompleta.setTitulo(sol.getTitulo());
     	solicitudIncompleta.setFecha(sol.getFecha());
     	solicitudIncompleta.setEstado(sol.getEstado());
+    	solicitudIncompleta.setInvestigador(sol.getInvestigador());
     	solicitudesFinal.add(solicitudIncompleta);
     }
     

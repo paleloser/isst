@@ -26,6 +26,7 @@ public class NotificacionDAOImplementation implements NotificacionDAO{
       Calendar date = Calendar.getInstance();
       Date today = date.getTime();
 			notificacion.setDate(today);
+			notificacion.setTipo(notificacion.getTipo() == null ? "" : notificacion.getTipo());
 			session.save(notificacion);
 			session.getTransaction().commit();
 		} catch (Exception e) {

@@ -9,25 +9,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
 @Entity
-public class Notificacion implements Serializable{
+public class Notificacion implements Serializable {
 
-	
-	@Id 
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@ManyToOne(targetEntity = Usuario.class)
 	private Usuario usuario;
-	
+
 	private String asunto;
 	private String contenido;
+	private String tipo;
 
 	private Date date;
-	
+
 	public Notificacion() {
-		
+
 	}
 
 	public int getId() {
@@ -61,7 +60,7 @@ public class Notificacion implements Serializable{
 	public void setContenido(String contenido) {
 		this.contenido = contenido;
 	}
-	
+
 	/**
 	 * @param date the date to set
 	 */
@@ -75,5 +74,19 @@ public class Notificacion implements Serializable{
 	public Date getDate() {
 		return date;
 	}
-	
+
+	/**
+	 * @return the tipo
+	 */
+	public String getTipo() {
+		return tipo;
+	}
+
+	/**
+	 * @param tipo the tipo to set
+	 */
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 }

@@ -46,7 +46,7 @@
               <tr>
                 <td>${i.index}</td>
                 <td>${notificacion.date}</td>
-                <td>${notificacion.tipo}</td>
+                <td>${notificacion.asunto}</td>
               </tr>
             </c:forEach>
           </tbody>

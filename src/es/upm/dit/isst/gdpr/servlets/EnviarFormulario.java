@@ -192,6 +192,7 @@ public class EnviarFormulario extends HttpServlet {
     notificacion.setUsuario(mcde);
     notificacion.setAsunto(asunto);
     notificacion.setContenido(cuerpo);
+    notificacion.setTipo("Propuesta subida");
     ndao.create(notificacion);
 
     EmailHandler automail = EmailHandler.getInstance();

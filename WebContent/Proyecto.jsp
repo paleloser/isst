@@ -11,114 +11,48 @@
   <meta name="description" content="GDPR - ISST G22 | Proyecto">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-  <title>GDPR - ISST G22 | Nombre Proyecto #</title>
+  <title>GDPR - ISST G22 | ${sdao_id.titulo}</title>
   <jsp:include page="views/styles.jsp" />
 </head>
 
 <body id='body'>
   <jsp:include page="views/nav_user.jsp" />
   <div class="content">
-    <section class="first container">
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <h4>${sdao_id.titulo}</h4>
-        </div>
-        <div class="col-sm-12 col-md-6 d-flex justify-content-end">
-          <c:if test="${sdao_id.estado == 1}">
-            <h6><span class="badge badge-primary">En proceso</span></h6>
-          </c:if>
-          <c:if test="${sdao_id.estado == 2}">
-            <h6><span class="badge badge-success">Aprobado</span></h6>
-          </c:if>
-          <c:if test="${sdao_id.estado == 3}">
-            <h6><span class="badge badge-danger">Danger</span></h6>
-          </c:if>
-          <c:if test="${sdao_id.estado == 4}">
-            <h6><span class="badge badge-warning">Se requiere info</span></h6>
-          </c:if>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-sm-12 col-md-7">
-          <div class="col-sm-12 d-flex justify-content-start align-items-start">
-            <div class="card" style="height: fit-content; margin-bottom: 20px;">
-              <div class="card-body">
-                <h5 class="card-title d-flex text-truncate"><i
-                    class="material-icons">attachment</i>&nbsp;fichero_original</h5>
-                <div style="display: block;">
-                  <small class="card-text text-monospace text-truncate" style="display: block;"><b>sha256:
-                    </b>1ea14725149fb4fd462dddbc6f2bf9b7e2bfc7cd2691ca0c4d60635abd3ad926</small></div>
-                <a href="#" class="card-link">Descargar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 d-flex justify-content-start align-items-start">
-            <div class="card" style="height: fit-content; margin-bottom: 20px;">
-              <div class="card-body">
-                <h5 class="card-title d-flex text-truncate"><i
-                    class="material-icons">attachment</i>&nbsp;fichero_firmado</h5>
-                <div style="display: block;">
-                  <small class="card-text text-monospace text-truncate" style="display: block;"><b>sha256:
-                    </b>4404f5b7a8836863b4bf63b9958024b6fc9074f0f0480ed8115e4168760e505e</small>
-                </div>
-                <a href="#" class="card-link">Descargar</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-5">
-          <blockquote class="blockquote text-right">
-            <p class="text-justify text-sm cita">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde natus laboriosam veniam nemo
-              expedita consequatur iste a quibusdam ipsam aliquam voluptatibus praesentium culpa excepturi, sapiente
-              atque sunt nobis error illum, molestias odio impedit at temporibus placeat. Nisi deserunt est non
-              temporibus odio, vel, quidem architecto omnis quae quaerat minus ducimus!
-            </p>
-            <footer class="blockquote-footer"><b>COE</b></footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-    <section class="history container">
-      <h6>Histórico</h6>
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Tipo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>01/02/2017</td>
-            <td>Subido</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>02/02/2017</td>
-            <td>Bajo estudio</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>04/02/2017</td>
-            <td>Solicitud de info</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>04/02/2017</td>
-            <td>Actualizado</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>06/02/2017</td>
-            <td>Aprobado</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <c:if test="${sdao_id.estado == 1}">
+      <jsp:include page="views/proyecto_in.jsp" />
+    </c:if>
+    <c:if test="${sdao_id.estado == 2}">
+      <jsp:include page="views/proyecto_ok.jsp" />
+    </c:if>
+    <c:if test="${sdao_id.estado == 3}">
+      <jsp:include page="views/proyecto_err.jsp" />
+    </c:if>
+    <c:if test="${sdao_id.estado == 4}">
+      <jsp:include page="views/fproyecto_warn.jsp" />
+    </c:if>
+    <c:if test="${notificaciones exist}">
+      <section class="history container">
+        <h6>Histórico de actividad</h6>
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <c:forEach items="${notificaciones}" var="notificacion" varStatus="i">
+              <tr>
+                <td>${i.index}</td>
+                <td>${notificacion.date}</td>
+                <td>${notificacion.tipo}</td>
+              </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+      </section>
+    </c:if>
     <br>
     <jsp:include page="views/footer_user.jsp" />
   </div>

@@ -37,7 +37,6 @@ public class ProcesarSolicitud extends HttpServlet{
 
 		if (estado.equals("4")) {
 			String contenido = req.getParameter("anotacion");
-			System.out.println("//////////////////////////////////////////////////////////// " + contenido);
 			if (contenido != null) {
 				AnotacionDAO anotacionDAO = AnotacionDAOImplementation.getInstance();
 				Anotacion anotacion = new Anotacion();

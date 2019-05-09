@@ -53,11 +53,11 @@ public class AnotacionDAOImplementation implements AnotacionDAO {
   public Anotacion read(String titulo) {
 
     Session session = SessionFactoryService.get().openSession();
-    Anotacion Anotacion = null;
+    Anotacion anotacion = null;
     try {
 
       session.beginTransaction();
-      Anotacion = session.load(Anotacion.class, titulo);
+      anotacion = session.load(Anotacion.class, titulo);
       session.getTransaction().commit();
 
     } catch (Exception e) {
@@ -68,7 +68,7 @@ public class AnotacionDAOImplementation implements AnotacionDAO {
       session.close();
     }
 
-    return Anotacion;
+    return anotacion;
   }
 
   @Override
@@ -137,11 +137,9 @@ public class AnotacionDAOImplementation implements AnotacionDAO {
     try {
 
       session.beginTransaction();
-      
       Query query = session.createQuery("from Anotacion where solicitud_titulo = :titulo order by dia");
       query.setParameter("titulo", solicitud.getTitulo());
       solicitudes = query.list();
-      
       session.getTransaction().commit();
 
     } catch (Exception e) {

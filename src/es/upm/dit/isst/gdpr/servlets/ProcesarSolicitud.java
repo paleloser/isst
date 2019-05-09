@@ -12,8 +12,7 @@ import es.upm.dit.isst.gdpr.dao.AnotacionDAO;
 import es.upm.dit.isst.gdpr.dao.AnotacionDAOImplementation;
 import es.upm.dit.isst.gdpr.dao.SolicitudDAO;
 import es.upm.dit.isst.gdpr.dao.SolicitudDAOImplementation;
-import es.upm.dit.isst.gdpr.model.Anotacion;
-import es.upm.dit.isst.gdpr.model.Solicitud;
+import es.upm.dit.isst.gdpr.model.*;
 
 @WebServlet({ "/ProcesarSolicitud" })
 public class ProcesarSolicitud extends HttpServlet{
@@ -34,8 +33,19 @@ public class ProcesarSolicitud extends HttpServlet{
 		
 		solicitud.setEstado(status);
 		solDAO.update(solicitud);
+		
+		String email = solicitud.getInvestigador().getEmail();
+		EmailHandler automail = EmailHandler.getInstance();
+		
+		if (estado == "2"){
+			automail.sendEmail(email, "Estado De Investigacion", "Estimado/a "+solicitud.getInvestigador().getName() + " " + solicitud.getInvestigador().getSurname()+" su solicitud para comenzar el proyecto"+ titulo +"ha sido rechazada por el GDPR.");
+		}
+		else if(estado=="3"){
+			automail.sendEmail(email, "Estado De Investigacion", "Estimado/a "+solicitud.getInvestigador().getName() + " " + solicitud.getInvestigador().getSurname()+" su solicitud para comenzar el proyecto"+ titulo +"ha sido rechazada por el GDPR.");
 
-		if (estado.equals("4")) {
+		}
+		
+		else if (estado == "4") {
 			String contenido = req.getParameter("anotacion");
 			if (contenido != null) {
 				AnotacionDAO anotacionDAO = AnotacionDAOImplementation.getInstance();
@@ -43,6 +53,7 @@ public class ProcesarSolicitud extends HttpServlet{
 				anotacion.setContenido(contenido);
 				anotacion.setSolicitud(solicitud);
 				anotacionDAO.create(anotacion);
+				automail.sendEmail(email, "Estado De Investigacion", "Estimado/a "+solicitud.getInvestigador().getName() + " " + solicitud.getInvestigador().getSurname()+"se requieren mas datos para proceder con la evaluacion de su solicitud");
 			}
 		}
 

@@ -3,6 +3,7 @@ package es.upm.dit.isst.gdpr.servlets;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import es.upm.dit.isst.gdpr.model.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +38,9 @@ public class FormServlet extends HttpServlet {
 		req.getSession().setAttribute("titulo", req.getParameter("titulo"));
 		req.getSession().setAttribute("fecha", req.getParameter("fecha"));
 		req.getSession().setAttribute("areas", areas);
+		String email = (String) req.getSession().getAttribute("email");
+		EmailHandler automail = EmailHandler.getInstance();
+		automail.sendEmail(email, "Proyecto Nuevo abierto", "Su solicitud de proyecto, con título"+req.getParameter("titulo")+"ha sido abierta.");
 		getServletContext().getRequestDispatcher("/FormProyecto.jsp").forward(req, resp);
 	}
 }

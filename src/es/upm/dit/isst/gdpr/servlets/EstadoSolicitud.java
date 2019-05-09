@@ -32,7 +32,7 @@ public class EstadoSolicitud extends HttpServlet {
         Collection<Anotacion> anotaciones = AnotacionDAOImplementation.getInstance().readAllBySolicitud(sol);
         req.setAttribute("anotaciones", anotaciones);
 
-        Collection<Notificacion> notificaciones = NotificacionDAOImplementation.getInstance().readAllOrderedBy("date");
+        Collection<Notificacion> notificaciones = NotificacionDAOImplementation.getInstance().readAllOrderedByDate();
         for (Notificacion notificacion : notificaciones) {
             if (!notificacion.getUsuario().getEmail().equals(sol.getInvestigador().getEmail()) &&
                 !notificacion.getUsuario().getEmail().equals(sol.getMiembroCDE().getEmail())) {

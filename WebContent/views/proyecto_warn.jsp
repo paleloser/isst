@@ -28,23 +28,27 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 d-flex justify-content-center align-items-center">
-        <h6>Subir memoria del proyecto</h6>
-        <div class="form-group flex-column">
-          <input type="file" name="file" id="file" class="inputfile" required />
-          <label for="file">
-            <i class="material-icons">
-              cloud_upload
-            </i>
-          </label>
-          <small>Formatos admitidos: pdf, txt, zip, tar, gz, doc, docx</small>
+      <div class="col-sm-12 d-flex justify-content-center align-items-center flex-wrap">
+        <div class="row align-items-center justify-content-center">
+          <h6>Subir memoria del proyecto</h6>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="form-group flex-column justify-content-center align-items-center">
+            <input type="file" name="file" id="file" class="inputfile" required />
+            <label for="file">
+              <i class="material-icons">
+                cloud_upload
+              </i>
+            </label>
+            <small>Formatos admitidos: pdf, txt, zip, tar, gz, doc, docx</small>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-sm-12 col-md-7">
       <c:forEach items="${anotaciones}" var="anotacion">
         <c:if test="${not anotacion.atendida}">
-          <p class="alert alert-danger text-justify">${anotacion}</p>
+          <p class="alert alert-warning text-justify">${anotacion.contenido}</p>
         </c:if>
       </c:forEach>
     </div>

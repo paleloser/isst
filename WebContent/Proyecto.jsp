@@ -28,9 +28,9 @@
       <jsp:include page="views/proyecto_err.jsp" />
     </c:if>
     <c:if test="${sdao_id.estado == 4}">
-      <jsp:include page="views/fproyecto_warn.jsp" />
+      <jsp:include page="views/proyecto_warn.jsp" />
     </c:if>
-    <c:if test="${notificaciones exist}">
+    <c:if test="${not empty notificaciones}">
       <section class="history container">
         <h6>Histórico de actividad</h6>
         <table class="table table-striped">
@@ -46,7 +46,7 @@
               <tr>
                 <td>${i.index}</td>
                 <td>${notificacion.date}</td>
-                <td>${notificacion.asunto}</td>
+                <td>${notificacion.tipo}</td>
               </tr>
             </c:forEach>
           </tbody>

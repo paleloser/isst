@@ -99,15 +99,14 @@ public class NotificacionDAOImplementation implements NotificacionDAO{
 	}
 
 	@Override
-	public Collection<Notificacion> readAllOrderedBy(String param) {
+	public Collection<Notificacion> readAllOrderedByDate() {
 		Session session = SessionFactoryService.get().openSession();
 		Collection<Notificacion> nots = null;
 		try {
 			session.beginTransaction();
-			param = param == null ? "date" : param;
-			Query query = session.createQuery("from Notificacion order by :param");
-			query.setParameter("param", param);
+			Query query = session.createQuery("from Notificacion order by date");
 			nots = query.list();
+			System.out.println("//////////////////////////////////////////////////////////////////// " + nots.size());
 			session.getTransaction().commit();
 			
 		} catch(Exception e) {

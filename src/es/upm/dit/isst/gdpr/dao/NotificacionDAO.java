@@ -9,5 +9,5 @@ public interface NotificacionDAO {
 	public void update(Notificacion notificacion);
 	public void delete(Notificacion notificacion);
 	public Collection<Notificacion> readAll();
-	public Collection<Notificacion> readAllOrderedBy(String param);
+	public Collection<Notificacion> readAllOrderedByDate();
 }

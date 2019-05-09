@@ -1,7 +1,12 @@
 package es.upm.dit.isst.gdpr.dao;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
+
 import org.hibernate.Session;
+import org.hibernate.query.Query;
+
 import es.upm.dit.isst.gdpr.model.Notificacion;
 
 public class NotificacionDAOImplementation implements NotificacionDAO{
@@ -18,6 +23,9 @@ public class NotificacionDAOImplementation implements NotificacionDAO{
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
+      Calendar date = Calendar.getInstance();
+      Date today = date.getTime();
+			notificacion.setDate(today);
 			session.save(notificacion);
 			session.getTransaction().commit();
 		} catch (Exception e) {
@@ -79,6 +87,26 @@ public class NotificacionDAOImplementation implements NotificacionDAO{
 		try {
 			session.beginTransaction();
 			nots = session.createQuery("from Notificacion").list();
+			session.getTransaction().commit();
+			
+		} catch(Exception e) {
+			System.out.print(e);
+		}finally {
+			session.close();
+		}
+		return nots;
+	}
+
+	@Override
+	public Collection<Notificacion> readAllOrderedBy(String param) {
+		Session session = SessionFactoryService.get().openSession();
+		Collection<Notificacion> nots = null;
+		try {
+			session.beginTransaction();
+			param = param == null ? "date" : param;
+			Query query = session.createQuery("from Notificacion order by :param");
+			query.setParameter("param", param);
+			nots = query.list();
 			session.getTransaction().commit();
 			
 		} catch(Exception e) {

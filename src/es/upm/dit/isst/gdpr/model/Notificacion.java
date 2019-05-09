@@ -1,6 +1,7 @@
 package es.upm.dit.isst.gdpr.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,8 @@ public class Notificacion implements Serializable{
 	
 	private String asunto;
 	private String contenido;
+
+	private Date date;
 	
 	public Notificacion() {
 		
@@ -59,5 +62,18 @@ public class Notificacion implements Serializable{
 		this.contenido = contenido;
 	}
 	
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
+		return date;
+	}
 	
 }

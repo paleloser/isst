@@ -36,6 +36,7 @@ public class AnotacionDAOImplementation implements AnotacionDAO {
       Date today = date.getTime();
       anotacion.setDate(today);
       anotacion.setId(id);
+      anotacion.setAtendida(false);
       session.save(anotacion);
       session.getTransaction().commit();
 

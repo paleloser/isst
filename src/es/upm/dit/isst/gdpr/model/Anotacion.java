@@ -19,6 +19,7 @@ public class Anotacion implements Serializable {
 
   private String contenido;
   private Date dia;
+  private boolean atendida;
 
   public Anotacion() {
 
@@ -54,5 +55,26 @@ public class Anotacion implements Serializable {
 
   public void setDate(Date dia) {
     this.dia = dia;
+  }
+
+  /**
+   * @param atendida the atendida to set
+   */
+  public void setAtendida(boolean atendida) {
+    this.atendida = atendida;
+  }
+
+  /**
+   * @return the dia
+   */
+  public Date getDia() {
+    return dia;
+  }
+
+  /**
+   * @return the atendida
+   */
+  public boolean isAtendida() {
+    return atendida;
   }
 }

@@ -36,8 +36,9 @@ public class ProcesarSolicitud extends HttpServlet {
 
 		solicitud.setEstado(status);
 		solDAO.update(solicitud);
-
+		
 		String email = solicitud.getInvestigador().getEmail();
+		
 		String asunto = "Se realizaron correcciones sobre su proyecto.";
 
 		Notificacion notificacion = new Notificacion();

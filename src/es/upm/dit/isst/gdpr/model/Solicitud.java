@@ -37,6 +37,10 @@ public class Solicitud implements Serializable{
 	
 	private int estado;
 	private String fecha;
+	private String hmac;
+
+	@Lob
+	private byte[] certificado;
 	
 	public Solicitud() {
 		
@@ -100,5 +104,31 @@ public class Solicitud implements Serializable{
 		this.estado = estado;
 	}
 
-	
+	/**
+	 * @param hmac the hmac to set
+	 */
+	public void setHmac(String hmac) {
+		this.hmac = hmac;
+	}
+
+	/**
+	 * @return the hmac
+	 */
+	public String getHmac() {
+		return hmac;
+	}
+
+	/**
+	 * @return the certificado
+	 */
+	public byte[] getCertificado() {
+		return certificado;
+	}
+
+	/**
+	 * @param certificado the certificado to set
+	 */
+	public void setCertificado(byte[] certificado) {
+		this.certificado = certificado;
+	}
 }

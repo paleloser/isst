@@ -38,9 +38,6 @@ public class FormServlet extends HttpServlet {
 		req.getSession().setAttribute("titulo", req.getParameter("titulo"));
 		req.getSession().setAttribute("fecha", req.getParameter("fecha"));
 		req.getSession().setAttribute("areas", areas);
-		String email = (String) req.getSession().getAttribute("email");
-		EmailHandler automail = EmailHandler.getInstance();
-		automail.sendEmail(email, "Proyecto Nuevo abierto", "Su solicitud de proyecto, con título"+req.getParameter("titulo")+"ha sido abierta.");
 		getServletContext().getRequestDispatcher("/FormProyecto.jsp").forward(req, resp);
 	}
 }

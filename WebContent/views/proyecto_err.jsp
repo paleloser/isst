@@ -19,9 +19,9 @@
           <div class="card-body">
             <h5 class="card-title d-flex text-truncate"><i class="material-icons">attachment</i>&nbsp;Memoria Original
             </h5>
-            <div style="display: block;" hidden>
+            <div style="display: block;">
               <small class="card-text text-monospace text-truncate" style="display: block;">
-                <b>sha256: </b>704bb521576f96e308d7e1a07b4783634063645f64182a968e91f6f5e642c7ff
+                <b>sha256: </b>${sdao_id.hmac}
               </small>
             </div>
             <form class="container" action="ServirInvestigacionServlet" method="POST" target="_blank">

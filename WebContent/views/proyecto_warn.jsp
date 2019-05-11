@@ -19,9 +19,9 @@
           <div class="card-body">
             <h5 class="card-title d-flex text-truncate"><i class="material-icons">attachment</i>&nbsp;Memoria Original
             </h5>
-            <div style="display: block;" hidden>
+            <div style="display: block;">
               <small class="card-text text-monospace text-truncate" style="display: block;">
-                <b>sha256: </b>7349a876ddf6f1d6fb44146e0d1a826c9fabfcf8e96b48d0619d1c83cc6ad6bf
+                <b>sha256: </b>${sdao_id.hmac}
               </small>
             </div>
             <a href="#" class="card-link">Descargar Memoria</a>
@@ -29,20 +29,24 @@
         </div>
       </div>
       <div class="col-sm-12 d-flex justify-content-center align-items-center flex-wrap">
-        <div class="row align-items-center justify-content-center">
-          <h6>Subir memoria del proyecto</h6>
-        </div>
-        <div class="row align-items-center justify-content-center">
-          <div class="form-group flex-column justify-content-center align-items-center">
-            <input type="file" name="file" id="file" class="inputfile" required />
-            <label for="file">
-              <i class="material-icons">
-                cloud_upload
-              </i>
-            </label>
-            <small>Formatos admitidos: pdf, txt, zip, tar, gz, doc, docx</small>
+        <form action="NuevaMemoriaServlet" method="POST" enctype="multipart/form-data">
+          <input type="text" name="titulo" id="titulo" value="${sdao_id.titulo}" hidden>
+          <div class="row align-items-center justify-content-center">
+            <h6>Subir memoria del proyecto</h6>
           </div>
-        </div>
+          <div class="row align-items-center justify-content-center">
+            <div class="form-group flex-column justify-content-center align-items-center">
+              <input type="file" name="file" id="file" class="inputfile" required />
+              <label for="file">
+                <i class="material-icons">
+                  cloud_upload
+                </i>
+              </label>
+              <small>Formatos admitidos: pdf, txt, zip, tar, gz, doc, docx</small>
+              <button class="btn btn-secondary submit" type="submit">Continuar</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
     <div class="col-sm-12 col-md-7">

@@ -19,9 +19,9 @@
           <div class="card-body">
             <h5 class="card-title d-flex text-truncate"><i class="material-icons">attachment</i>&nbsp;Memoria Evaluada
             </h5>
-            <div style="display: block;" hidden>
+            <div style="display: block;">
               <small class="card-text text-monospace text-truncate" style="display: block;">
-                <b>sha256: </b>1ea14725149fb4fd462dddbc6f2bf9b7e2bfc7cd2691ca0c4d60635abd3ad926
+                <b>sha256: </b>${sdao_id.hmac}
               </small>
             </div>
             <form class="container" action="ServirInvestigacionServlet" method="POST" target="_blank">

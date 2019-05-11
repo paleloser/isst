@@ -36,9 +36,9 @@ public class ProcesarSolicitud extends HttpServlet {
 
 		solicitud.setEstado(status);
 		solDAO.update(solicitud);
-		
+
 		String email = solicitud.getInvestigador().getEmail();
-		
+
 		String asunto = "Se realizaron correcciones sobre su proyecto.";
 
 		Notificacion notificacion = new Notificacion();
@@ -48,33 +48,33 @@ public class ProcesarSolicitud extends HttpServlet {
 		String cuerpo = "";
 
 		switch (estado) {
-		case "1":
-			break;
-		case "2":
-			notificacion.setTipo("Propuesta aprobada");
-			cuerpo += "La solicitud con título " + titulo
-					+ " ha sido aprobada. Puede acceder a la plataforma para descargar su certificado.";
-			break;
-		case "3":
-			notificacion.setTipo("Propuesta denegada");
-			cuerpo += "La solicitud con título " + titulo
-					+ " ha sido denegada. Puede acceder a la plataforma para obtener más información sobre el motivo de denegación.";
-			break;
-		case "4":
-			notificacion.setTipo("Falta información");
-			String contenido = req.getParameter("anotacion");
-			cuerpo += "Falta información respecto a la solicitud con título " + titulo + ":\n";
-			if (contenido != null) {
-				AnotacionDAO anotacionDAO = AnotacionDAOImplementation.getInstance();
-				Anotacion anotacion = new Anotacion();
-				anotacion.setContenido(contenido);
-				anotacion.setSolicitud(solicitud);
-				anotacionDAO.create(anotacion);
-				cuerpo += contenido;
-			}
-			break;
-		default:
-			break;
+			case "1":
+				break;
+			case "2":
+				notificacion.setTipo("Propuesta aprobada");
+				cuerpo += "La solicitud con titulo " + titulo
+						+ " ha sido aprobada. Puede acceder a la plataforma para descargar su certificado.";
+				break;
+			case "3":
+				notificacion.setTipo("Propuesta denegada");
+				cuerpo += "La solicitud con titulo " + titulo
+						+ " ha sido denegada. Puede acceder a la plataforma para obtener mas informacion sobre el motivo de denegacion.";
+				break;
+			case "4":
+				notificacion.setTipo("Falta informacion");
+				String contenido = req.getParameter("anotacion");
+				cuerpo += "Falta informacion respecto a la solicitud con titulo " + titulo + ":\n";
+				if (contenido != null) {
+					AnotacionDAO anotacionDAO = AnotacionDAOImplementation.getInstance();
+					Anotacion anotacion = new Anotacion();
+					anotacion.setContenido(contenido);
+					anotacion.setSolicitud(solicitud);
+					anotacionDAO.create(anotacion);
+					cuerpo += contenido;
+				}
+				break;
+			default:
+				break;
 		}
 
 		notificacion.setContenido(cuerpo);

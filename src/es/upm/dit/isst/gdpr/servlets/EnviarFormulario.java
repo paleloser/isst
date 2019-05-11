@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.apache.shiro.crypto.hash.Sha256Hash;
+
 import es.upm.dit.isst.gdpr.dao.NotificacionDAO;
 import es.upm.dit.isst.gdpr.dao.NotificacionDAOImplementation;
 import es.upm.dit.isst.gdpr.dao.SolicitudDAO;
@@ -71,6 +73,8 @@ public class EnviarFormulario extends HttpServlet {
     for (int length = 0; (length = fileContent.read(buffer)) > 0;)
       output.write(buffer, 0, length);
 
+
+    solicitud.setHmac(new Sha256Hash(output.toByteArray()).toString());
     solicitud.setInvestigacion(output.toByteArray());
 
     // How to get the area\d+ input fields:

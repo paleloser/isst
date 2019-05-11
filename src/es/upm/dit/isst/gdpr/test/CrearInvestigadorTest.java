@@ -29,7 +29,7 @@ public class CrearInvestigadorTest {
   JavascriptExecutor js;
   @Before
   public void setUp() {
-	System.setProperty( "webdriver.chrome.driver", "/home/jaime/Universidad/Cuarto/ISST/T6-Pruebas/chromedriver");
+	System.setProperty( "webdriver.chrome.driver", "chromedriver.exe");
 	driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();

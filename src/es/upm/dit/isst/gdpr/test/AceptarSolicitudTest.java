@@ -16,6 +16,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.upm.dit.isst.gdpr.dao.SolicitudDAO;
+import es.upm.dit.isst.gdpr.dao.UsuarioDAOImplementation;
+import es.upm.dit.isst.gdpr.model.Solicitud;
+import es.upm.dit.isst.gdpr.model.Usuario;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -34,10 +40,39 @@ public class AceptarSolicitudTest {
 	driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
+    UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
+    SolicitudDAO sdao = SolicitudDAOImplementation.getInstance();
+    
+    Usuario inves = new Usuario();
+    inves.setEmail("prueba@prueba");
+    inves.setPassword("9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08");
+    inves.setMcde(false);
+    udao.create(inves);
+    Usuario mcde = new Usuario();
+    mcde.setEmail("test@test");
+    mcde.setPassword("9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08");
+    mcde.setMcde(true);
+    udao.create(mcde);
+    Solicitud sol = new Solicitud();
+    sol.setEstado(1);
+    sol.setTitulo("Esto es una Prueba");
+    sol.setInvestigador(udao.read("prueba@prueba"));
+    sdao.create(sol);
+    
   }
   @After
   public void tearDown() {
     driver.quit();
+    UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
+    SolicitudDAO sdao = SolicitudDAOImplementation.getInstance();
+    ArrayList<Solicitud> sols = (ArrayList<Solicitud>) sdao.readAll();
+	for(Solicitud sol: sols) {
+		sdao.delete(sol);
+	}
+	ArrayList<Usuario> usuarios = (ArrayList<Usuario>) udao.readAll();
+	for(Usuario usu: usuarios) {
+		udao.delete(usu);
+	}
   }
   @Test
 	  public void aceptarSolicitudTest() {

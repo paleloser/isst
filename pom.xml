@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>GDPR</groupId>
 	<artifactId>GDPR</artifactId>
-	<version>0.1.0</version>
+	<version>1.0</version>
 	<packaging>war</packaging>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -21,6 +21,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>
 				<configuration>
+					<excludes>
+						<exclude>**/test/*</exclude>
+					</excludes>
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>

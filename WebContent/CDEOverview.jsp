@@ -34,7 +34,7 @@
         		<tr>
         			<td>${sol.titulo}</td>
         			<td class="d-none d-sm-table-cell">${sol.investigador.email}</td>
-        			<td class="d-none d-sm-table-cell">${sol.fecha}</td>
+        			<td>${sol.fecha}</td>
         			<td class="open-case d-flex flex-row justify-content-end">
         				<form method="post" action="MuestraSolicitud">
         					<input type="hidden" name="titulo" value="${sol.titulo}"/>

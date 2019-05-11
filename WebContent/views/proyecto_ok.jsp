@@ -43,7 +43,7 @@
                 <b>sha256: </b>4404f5b7a8836863b4bf63b9958024b6fc9074f0f0480ed8115e4168760e505e
               </small>
             </div>
-            <form class="container" action="ServirInvestigacionServlet" method="POST" target="_blank">
+            <form class="container" action="ServirCertificadoServlet" method="POST" target="_blank">
               <input type="text" name="titulo" value="${sdao_id.titulo}" hidden>
               <button class="btn card-link">Descargar Certificado</button>
               <br>

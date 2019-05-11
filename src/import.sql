@@ -1,7 +1,5 @@
 -- drop table usuario;
 -- drop table anotacion;
--- drop table especialidades;
--- drop table especialidadessolicitud;
 -- drop table notificacion;
 -- drop table solicitud;
 -- drop table solicitud_form;

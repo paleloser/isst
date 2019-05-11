@@ -42,16 +42,6 @@ public class Solicitud implements Serializable{
 		
 	}
 	
-	@OneToMany(mappedBy = "titulo")@LazyCollection(LazyCollectionOption.FALSE)
-	private Collection<EspecialidadesSolicitud> especialidadesSolicitud;
-
-	public Collection<EspecialidadesSolicitud> getEspecialidadesSolicitud() {
-		return especialidadesSolicitud;
-	}
-
-	public void setEspecialidadesSolicitud(Collection<EspecialidadesSolicitud> especialidadesSolicitud) {
-		this.especialidadesSolicitud = especialidadesSolicitud;
-	}
 
 	public String getFecha() {
 		return fecha;

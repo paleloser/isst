@@ -17,8 +17,6 @@
 
 		<!-- TODO: insert models -->
 		<mapping class="es.upm.dit.isst.gdpr.model.Solicitud" />
-		<mapping class="es.upm.dit.isst.gdpr.model.Especialidades" />
-		<mapping class="es.upm.dit.isst.gdpr.model.EspecialidadesSolicitud" />
 		<mapping class="es.upm.dit.isst.gdpr.model.Notificacion" />
 		<mapping class="es.upm.dit.isst.gdpr.model.Usuario" />
 		<mapping class="es.upm.dit.isst.gdpr.model.Anotacion" />

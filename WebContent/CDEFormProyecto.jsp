@@ -30,40 +30,49 @@
       <form class="container" action="ServirInvestigacionServlet" method="POST" target="_blank">
         <input type="text" name="titulo" value="${titulo}" hidden>
         <button class="btn btn-primary submit">Descargar Memoria</button>
-        <br>
       </form>
+      <hr>
       <c:if test="${estado == 1}">
         <div class="row justify-content-sm-start">
           <div class="col-sm-auto">
+            <h5>Aceptar la solicitud y finalizar el proceso</h5>
+            <br>
             <form action="NuevoCertificadoServlet" method="POST" class="" enctype="multipart/form-data">
-              <div class="container">
-                <h6>Subir certificado</h6>
-                <div class="form-group flex-column">
-                  <input type="file" name="file" id="file" class="inputfile" required />
-                  <label for="file">
-                    <i class="material-icons">
-                      cloud_upload
-                    </i>
-                  </label>
-                  <small>Formatos admitidos: pdf, txt, zip, tar, gz, doc, docx</small>
-                </div>
+              <h6>Subir certificado</h6>
+              <div class="form-group flex-column">
+                <input type="file" name="file" id="file" class="inputfile" required />
+                <label for="file">
+                  <i class="material-icons">
+                    cloud_upload
+                  </i>
+                </label>
+                <small>Formatos admitidos: pdf, txt, zip, tar, gz, doc, docx</small>
               </div>
               <input type="hidden" name="estado" value="2" />
               <input type="hidden" name="titulo" value="${titulo}" />
               <button class="btn btn-primary submit">Aprobar</button>
             </form>
           </div>
+          <div class="col-12">
+            <hr>
+          </div>
           <div class="col-sm-auto">
+            <h5>Solicitar más información</h5>
             <form action="ProcesarSolicitud" method="POST" class="">
               <div class="row" style="padding: 25px;">
-                <textarea name="anotacion" cols="10000" rows="10" placeholder="Introduzca aqui los conceptos que faltan por especificar."></textarea>
+                <textarea name="anotacion" cols="10000" rows="10"
+                  placeholder="Introduzca aqui los conceptos que faltan por especificar."></textarea>
               </div>
               <input type="hidden" name="estado" value="4" />
               <input type="hidden" name="titulo" value="${titulo}" />
               <button class="btn btn-secondary submit">Solicitar Info</button>
             </form>
           </div>
+          <div class="col-12">
+            <hr>
+          </div>
           <div class="col-sm-auto">
+            <h5>Denegar la solicitud y finalizar el proceso</h5>
             <form action="ProcesarSolicitud" method="POST" class="">
               <input type="hidden" name="estado" value="3" />
               <input type="hidden" name="titulo" value="${titulo}" />

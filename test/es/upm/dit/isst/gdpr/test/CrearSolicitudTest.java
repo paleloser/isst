@@ -17,6 +17,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.upm.dit.isst.gdpr.dao.UsuarioDAO;
+import es.upm.dit.isst.gdpr.dao.UsuarioDAOImplementation;
+import es.upm.dit.isst.gdpr.model.Usuario;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -35,6 +40,12 @@ public class CrearSolicitudTest {
 	driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
+    UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
+    Usuario mcde = new Usuario();
+    mcde.setEmail("test@test");
+    mcde.setPassword("9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08");
+    mcde.setMcde(true);
+    udao.create(mcde);
   }
   @After
   public void tearDown() {

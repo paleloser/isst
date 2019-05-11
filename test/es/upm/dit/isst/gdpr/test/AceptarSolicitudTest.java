@@ -18,6 +18,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import es.upm.dit.isst.gdpr.dao.SolicitudDAO;
+import es.upm.dit.isst.gdpr.dao.SolicitudDAOImplementation;
+import es.upm.dit.isst.gdpr.dao.UsuarioDAO;
 import es.upm.dit.isst.gdpr.dao.UsuarioDAOImplementation;
 import es.upm.dit.isst.gdpr.model.Solicitud;
 import es.upm.dit.isst.gdpr.model.Usuario;
@@ -48,32 +50,31 @@ public class AceptarSolicitudTest {
     inves.setPassword("9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08");
     inves.setMcde(false);
     udao.create(inves);
-    Usuario mcde = new Usuario();
-    mcde.setEmail("test@test");
-    mcde.setPassword("9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08");
-    mcde.setMcde(true);
-    udao.create(mcde);
+    
     Solicitud sol = new Solicitud();
     sol.setEstado(1);
     sol.setTitulo("Esto es una Prueba");
     sol.setInvestigador(udao.read("prueba@prueba"));
+    sol.setMiembroCDE(udao.read("test@test"));
     sdao.create(sol);
     
   }
   @After
-  public void tearDown() {
-    driver.quit();
-    UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
-    SolicitudDAO sdao = SolicitudDAOImplementation.getInstance();
-    ArrayList<Solicitud> sols = (ArrayList<Solicitud>) sdao.readAll();
-	for(Solicitud sol: sols) {
-		sdao.delete(sol);
-	}
-	ArrayList<Usuario> usuarios = (ArrayList<Usuario>) udao.readAll();
-	for(Usuario usu: usuarios) {
-		udao.delete(usu);
-	}
-  }
+	
+	  public void tearDown() { 
+		  driver.quit();
+//		  UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
+//		  SolicitudDAO sdao =  SolicitudDAOImplementation.getInstance(); 
+//		  ArrayList<Solicitud> sols = (ArrayList<Solicitud>) sdao.readAll();
+//		  for(Solicitud sol: sols) {
+//			  sdao.delete(sol);
+//		  } 
+//		  ArrayList<Usuario> usuarios = (ArrayList<Usuario>) udao.readAll(); 
+//		  for(Usuario usu: usuarios) {
+//			  udao.delete(usu);
+//		  }
+	  }
+	 
   @Test
 	  public void aceptarSolicitudTest() {
 	    driver.get("http://localhost:8080/GDPR/");
@@ -85,10 +86,10 @@ public class AceptarSolicitudTest {
 	    driver.findElement(By.id("passwd")).sendKeys("test");
 	    driver.findElement(By.cssSelector(".btn")).click();
 	    driver.findElement(By.cssSelector(".icon-button > .material-icons")).click();
-	    driver.findElement(By.cssSelector(".btn-primary:nth-child(4)")).click();
+	    driver.findElement(By.cssSelector("label > .material-icons")).click();	    
 	    File file = new File("testData/prueba.pdf");
-	    driver.findElement(By.id("file")).sendKeys(file.getAbsolutePath());
-	    driver.findElement(By.cssSelector(".btn-primary:nth-child(4)")).click();
+	    driver.findElement(By.name("file")).sendKeys(file.getAbsolutePath());
+	    driver.findElement(By.cssSelector(".btn-primary:nth-child(5)")).click();
 	    driver.findElement(By.id("navbarDropdown")).click();
 	    driver.findElement(By.linkText("Log Out")).click();
 	    driver.findElement(By.linkText("Log In")).click();

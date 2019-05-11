@@ -33,10 +33,6 @@ public class Usuario implements Serializable {
 
 	private String especialidades;
 	
-	
-	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-	private Collection<Notificacion> notificaciones;
-	
 	public Usuario() {}
 	
 	
@@ -72,10 +68,6 @@ public class Usuario implements Serializable {
 		this.especialidades = especialidades;
 	}
 	
-	public void setNotificaciones (Collection<Notificacion> notificaciones){
-		this.notificaciones = notificaciones;
-	}
-	
 	public String getEmail (){
 		return email;
 	}
@@ -105,9 +97,5 @@ public class Usuario implements Serializable {
 	}
 	public String getEspecialidades (){
 		return especialidades;
-	}
-	
-	public Collection<Notificacion> getNotificaciones (){
-		return notificaciones;
 	}
 }

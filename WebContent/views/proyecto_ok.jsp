@@ -24,6 +24,7 @@
                 <b>sha256: </b>${sdao_id.hmac}
               </small>
             </div>
+            <hr>
             <form class="container" action="ServirInvestigacionServlet" method="POST" target="_blank">
               <input type="text" name="titulo" value="${sdao_id.titulo}" hidden>
               <button class="btn card-link">Descargar Memoria</button>
@@ -55,9 +56,9 @@
       <blockquote class="blockquote text-right">
         <p class="text-justify text-sm cita">
           El Comité de Ética de la Universidad Politécnica de Madrid determina que la investigación con título
-          ${sdao_id.titulo} y sun memoria, entregada por <%= sdao_id.getInvestigador().getName() %> <%= sdao_id.getInvestigador().getSurname() %>
-          cumple con los requisitos establecidos por el Reglamento General de Protección de Datos (RGPD) y es apta para su publicación, conforme a la
-          revisión del 14 de Abril de 2016.
+          ${sdao_id.titulo} y su memoria, cumplen con los requisitos establecidos por el Reglamento General de 
+          Protección de Datos (RGPD) y es apta para su publicación, conforme a la revisión del 14 de Abril de 
+          2016.
         </p>
         <footer class="blockquote-footer"><b>COE</b></footer>
       </blockquote>

@@ -193,10 +193,11 @@ public class EnviarFormulario extends HttpServlet {
         + solicitud.getInvestigador().getName() + " " + solicitud.getInvestigador().getSurname() + ".";
 
     Notificacion notificacion = new Notificacion();
-    notificacion.setUsuario(mcde);
     notificacion.setAsunto(asunto);
     notificacion.setContenido(cuerpo);
     notificacion.setTipo("Propuesta subida");
+    notificacion.setSolicitud(solicitud);
+    notificacion.setUsuario(mcde);
     ndao.create(notificacion);
 
     EmailHandler automail = EmailHandler.getInstance();

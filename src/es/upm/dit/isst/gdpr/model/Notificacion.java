@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class Notificacion implements Serializable {
 
@@ -16,14 +19,17 @@ public class Notificacion implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@ManyToOne(targetEntity = Usuario.class)
-	private Usuario usuario;
-
 	private String asunto;
 	private String contenido;
 	private String tipo;
 
 	private Date date;
+	
+	@ManyToOne(targetEntity = Solicitud.class) @LazyCollection(LazyCollectionOption.FALSE)
+	private Solicitud solicitud;
+
+	@ManyToOne(targetEntity = Usuario.class) @LazyCollection(LazyCollectionOption.FALSE)
+	private Usuario usuario;
 
 	public Notificacion() {
 
@@ -35,14 +41,6 @@ public class Notificacion implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 	public String getAsunto() {
@@ -89,4 +87,31 @@ public class Notificacion implements Serializable {
 		this.tipo = tipo;
 	}
 
+	/**
+	 * @return the solicitud
+	 */
+	public Solicitud getSolicitud() {
+		return solicitud;
+	}
+
+	/**
+	 * @param solicitud the solicitud to set
+	 */
+	public void setSolicitud(Solicitud solicitud) {
+		this.solicitud = solicitud;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	/**
+	 * @return the usuario
+	 */
+	public Usuario getUsuario() {
+		return usuario;
+	}
 }

@@ -1,6 +1,7 @@
 package es.upm.dit.isst.gdpr.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.servlet.ServletException;
@@ -18,30 +19,30 @@ import es.upm.dit.isst.gdpr.model.Solicitud;
 
 @WebServlet({ "/EstadoSolicitud" })
 public class EstadoSolicitud extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    }
+	}
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Solicitud sol = SolicitudDAOImplementation.getInstance().read(req.getParameter("solicitud"));
-        req.setAttribute("sdao_id", sol);
+		Solicitud sol = SolicitudDAOImplementation.getInstance().read(req.getParameter("solicitud"));
+		req.setAttribute("sdao_id", sol);
 
-        Collection<Anotacion> anotaciones = AnotacionDAOImplementation.getInstance().readAllBySolicitud(sol);
-        req.setAttribute("anotaciones", anotaciones);
+		Collection<Anotacion> anotaciones = AnotacionDAOImplementation.getInstance().readAllBySolicitud(sol);
+		req.setAttribute("anotaciones", anotaciones);
 
-        Collection<Notificacion> notificaciones = NotificacionDAOImplementation.getInstance().readAllOrderedByDate();
-        for (Notificacion notificacion : notificaciones) {
-            if (!notificacion.getUsuario().getEmail().equals(sol.getInvestigador().getEmail()) &&
-                !notificacion.getUsuario().getEmail().equals(sol.getMiembroCDE().getEmail())) {
-                    notificaciones.remove(notificacion);
-                }
-        }
-        req.setAttribute("notificaciones", notificaciones);
+		Collection<Notificacion> notificaciones = NotificacionDAOImplementation.getInstance().readAllOrderedByDate();
+		ArrayList<Notificacion> mList = new ArrayList<>();
+		for (Notificacion notificacion : notificaciones) {
+			if (notificacion.getSolicitud().getTitulo().equals(sol.getTitulo())) {
+				mList.add(notificacion);
+			}
+		}
+		req.setAttribute("notificaciones", mList);
 
-		getServletContext().getRequestDispatcher( "/Proyecto.jsp" ).forward( req, resp );
-		
+		getServletContext().getRequestDispatcher("/Proyecto.jsp").forward(req, resp);
+
 	}
 }

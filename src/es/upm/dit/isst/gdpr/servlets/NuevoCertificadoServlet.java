@@ -23,13 +23,14 @@ import es.upm.dit.isst.gdpr.dao.SolicitudDAOImplementation;
 import es.upm.dit.isst.gdpr.model.Anotacion;
 import es.upm.dit.isst.gdpr.model.Notificacion;
 import es.upm.dit.isst.gdpr.model.Solicitud;
+import es.upm.dit.isst.gdpr.model.Usuario;
 
 /**
  * Servlet implementation class NuevaMemoriaServlet
  */
-@WebServlet("/NuevaMemoriaServlet")
+@WebServlet("/NuevoCertificadoServlet")
 @MultipartConfig
-public class NuevaMemoriaServlet extends HttpServlet {
+public class NuevoCertificadoServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -46,7 +47,6 @@ public class NuevaMemoriaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		SolicitudDAO sdao = SolicitudDAOImplementation.getInstance();
-		AnotacionDAO adao = AnotacionDAOImplementation.getInstance();
 		String titulo = req.getParameter("titulo").toString();
 		Part filePart = req.getPart("file");
 		InputStream fileContent = filePart.getInputStream();
@@ -56,40 +56,12 @@ public class NuevaMemoriaServlet extends HttpServlet {
 		for (int length = 0; (length = fileContent.read(buffer)) > 0;)
 			output.write(buffer, 0, length);
 		Solicitud solicitud = sdao.read(titulo);
-		solicitud.setHmac(new Sha256Hash(output.toByteArray()).toString());
-		solicitud.setInvestigacion(output.toByteArray());
-		solicitud.setEstado(1);
+		solicitud.setCertificado(output.toByteArray());
 		sdao.update(solicitud);
-
-		ArrayList<Anotacion> anotaciones = (ArrayList<Anotacion>) adao.readAll();
-		ArrayList<Anotacion> misAnotaciones = new ArrayList<Anotacion>();
-		for (Anotacion anotacion : anotaciones) {
-			if (anotacion.getSolicitud().getTitulo().equals(titulo)) {
-				misAnotaciones.add(anotacion);
-			}
-		}
-		for (Anotacion anotacion : misAnotaciones) {
-			if (!anotacion.isAtendida()) {
-				anotacion.setAtendida(true);
-				adao.update(anotacion);
-			}
-		}
-
-		Notificacion notificacion = new Notificacion();
-		String email = solicitud.getMiembroCDE().getEmail();
-		String asunto = "Se realizaron modificaciones sobre un proyecto.";
-		notificacion.setTipo("Aportacion de info");
-		notificacion.setAsunto(asunto);
-		String cuerpo = "Se ha resubido la memoria de la solicitud " + solicitud.getTitulo();
-		notificacion.setContenido(cuerpo);
-		notificacion.setSolicitud(solicitud);
-		notificacion.setUsuario(solicitud.getMiembroCDE());
-		NotificacionDAOImplementation.getInstance().create(notificacion);
-
-		EmailHandler automail = EmailHandler.getInstance();
-		automail.sendEmail(email, asunto, cuerpo);
-
-		resp.sendRedirect(req.getContextPath() + "/InvestigadorOverview");
+		
+		req.setAttribute("estado",2);
+		
+		resp.sendRedirect(req.getContextPath() + "/ProcesarSolicitud?estado=2&titulo=" + titulo);
 
 	}
 

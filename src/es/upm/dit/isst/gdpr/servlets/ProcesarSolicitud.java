@@ -22,6 +22,7 @@ public class ProcesarSolicitud extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		this.doPost(req, resp);
 	}
 
 	@Override
@@ -42,7 +43,7 @@ public class ProcesarSolicitud extends HttpServlet {
 		String asunto = "Se realizaron correcciones sobre su proyecto.";
 
 		Notificacion notificacion = new Notificacion();
-		notificacion.setUsuario(solicitud.getInvestigador());
+		notificacion.setSolicitud(solicitud);
 		notificacion.setAsunto(asunto);
 
 		String cuerpo = "";
@@ -78,6 +79,8 @@ public class ProcesarSolicitud extends HttpServlet {
 		}
 
 		notificacion.setContenido(cuerpo);
+		notificacion.setSolicitud(solicitud);
+		notificacion.setUsuario(solicitud.getInvestigador());
 		NotificacionDAOImplementation.getInstance().create(notificacion);
 
 		EmailHandler automail = EmailHandler.getInstance();

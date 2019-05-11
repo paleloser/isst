@@ -41,6 +41,9 @@ public class Solicitud implements Serializable{
 
 	@Lob
 	private byte[] certificado;
+
+	@OneToMany(mappedBy = "solicitud", fetch = FetchType.EAGER)
+	private Collection<Notificacion> notificaciones;
 	
 	public Solicitud() {
 		

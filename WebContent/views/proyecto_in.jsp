@@ -24,6 +24,7 @@
                 <b>sha256: </b>${sdao_id.hmac}
               </small>
             </div>
+            <hr>
             <form class="container" action="ServirInvestigacionServlet" method="POST" target="_blank">
               <input type="text" name="titulo" value="${sdao_id.titulo}" hidden>
               <button class="btn card-link">Descargar Memoria</button>

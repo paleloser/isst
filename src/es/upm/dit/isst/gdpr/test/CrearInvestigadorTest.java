@@ -48,7 +48,7 @@ public class CrearInvestigadorTest {
     driver.findElement(By.name("apellidos")).sendKeys("mismo");
     driver.findElement(By.name("correo")).click();
     //Sustituir por el correo del investigador que se quiera usar
-    driver.findElement(By.name("correo")).sendKeys("test@test");
+    driver.findElement(By.name("correo")).sendKeys("prueba@prueba");
     driver.findElement(By.name("dni")).click();
     driver.findElement(By.name("dni")).sendKeys("1234");
     driver.findElement(By.cssSelector(".col-md-5")).click();

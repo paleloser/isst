@@ -21,6 +21,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import java.util.HashMap;
 import java.util.List;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
 public class AceptarSolicitudTest {
@@ -39,34 +40,29 @@ public class AceptarSolicitudTest {
     driver.quit();
   }
   @Test
-  public void aceptarSolicitudTest() {
-    driver.get("http://localhost:8080/GDPR/");
-    driver.manage().window().setSize(new Dimension(1691, 993));
-    driver.findElement(By.linkText("Log In")).click();
-    driver.findElement(By.name("correo")).click();
-    //Sustituir por el correo del miembro del CDE
-    driver.findElement(By.name("correo")).sendKeys("prueba@prueba");
-    driver.findElement(By.cssSelector(".col:nth-child(4)")).click();
-    driver.findElement(By.id("passwd")).click();
-    //Sustituir por la password del miembro del CDE
-    driver.findElement(By.id("passwd")).sendKeys("prueba");
-    driver.findElement(By.cssSelector(".btn")).click();
-    driver.findElement(By.cssSelector("tr:nth-child(2) > td:nth-child(1)")).click();
-    //Sustituir por el titulo de la solicitud de test
-    assertThat(driver.findElement(By.cssSelector("tr:nth-child(2) > td:nth-child(1)")).getText(), is("Esto es una Prueba"));
-    driver.findElement(By.cssSelector("tr:nth-child(2) .material-icons")).click();
-    driver.findElement(By.cssSelector(".btn-primary:nth-child(3)")).click();
-    driver.findElement(By.id("navbarDropdown")).click();
-    driver.findElement(By.linkText("Log Out")).click();
-    driver.findElement(By.linkText("Log In")).click();
-    driver.findElement(By.name("correo")).click();
-    //Sustituir por el correo del investigador
-    driver.findElement(By.name("correo")).sendKeys("test@test");
-    driver.findElement(By.id("passwd")).click();
-    //Sustituir por la password del investigador
-    driver.findElement(By.id("passwd")).sendKeys("test");
-    driver.findElement(By.cssSelector(".btn")).click();
-    driver.findElement(By.cssSelector(".text-success")).click();
-    assertThat(driver.findElement(By.cssSelector(".text-success")).getText(), is("Aprobado"));
-  }
+	  public void aceptarSolicitudTest() {
+	    driver.get("http://localhost:8080/GDPR/");
+	    driver.manage().window().setSize(new Dimension(1568, 993));
+	    driver.findElement(By.linkText("Log In")).click();
+	    driver.findElement(By.name("correo")).click();
+	    driver.findElement(By.name("correo")).sendKeys("test@test");
+	    driver.findElement(By.id("passwd")).click();
+	    driver.findElement(By.id("passwd")).sendKeys("test");
+	    driver.findElement(By.cssSelector(".btn")).click();
+	    driver.findElement(By.cssSelector(".icon-button > .material-icons")).click();
+	    driver.findElement(By.cssSelector(".btn-primary:nth-child(4)")).click();
+	    File file = new File("testData/prueba.pdf");
+	    driver.findElement(By.id("file")).sendKeys(file.getAbsolutePath());
+	    driver.findElement(By.cssSelector(".btn-primary:nth-child(4)")).click();
+	    driver.findElement(By.id("navbarDropdown")).click();
+	    driver.findElement(By.linkText("Log Out")).click();
+	    driver.findElement(By.linkText("Log In")).click();
+	    driver.findElement(By.name("correo")).click();
+	    driver.findElement(By.name("correo")).sendKeys("prueba@prueba");
+	    driver.findElement(By.id("passwd")).click();
+	    driver.findElement(By.id("passwd")).sendKeys("test");
+	    driver.findElement(By.cssSelector(".btn")).click();
+	    driver.findElement(By.cssSelector(".text-success")).click();
+	    assertThat(driver.findElement(By.cssSelector(".text-success")).getText(), is("Aprobado"));
+	  }
 }

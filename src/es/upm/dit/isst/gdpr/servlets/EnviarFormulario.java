@@ -108,6 +108,23 @@ public class EnviarFormulario extends HttpServlet {
     SolicitudDAO solDAO = SolicitudDAOImplementation.getInstance();
     solDAO.create(solicitud);
 
+    String emailMCDE = solicitud.getMiembroCDE().getEmail();
+    String asunto = "Se le ha asignado un nuevo proyecto";
+    String cuerpo = "Se le ha asginado un nuevo proyecto titulado " + solicitud.getTitulo() + " creado por "
+        + solicitud.getInvestigador().getName() + " " + solicitud.getInvestigador().getSurname() + ".";
+    
+    NotificacionDAO ndao = NotificacionDAOImplementation.getInstance();
+    Notificacion notificacion = new Notificacion();
+    notificacion.setAsunto(asunto);
+    notificacion.setContenido(cuerpo);
+    notificacion.setTipo("Propuesta subida");
+    notificacion.setSolicitud(solicitud);
+    notificacion.setUsuario(solicitud.getMiembroCDE());
+    ndao.create(notificacion);
+
+    EmailHandler automail = EmailHandler.getInstance();
+    automail.sendEmail(emailMCDE, asunto, cuerpo);
+
     // Remove the fields of the project we dont need anymore
     req.getSession().removeAttribute("titulo");
     req.getSession().removeAttribute("fecha");
@@ -126,8 +143,6 @@ public class EnviarFormulario extends HttpServlet {
 
     UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
     users = udao.readAll();
-
-    NotificacionDAO ndao = NotificacionDAOImplementation.getInstance();
 
     // Comprobar las especialidades de la solicitud y despues hacer una lista con
     // los mcde adecuados.
@@ -186,22 +201,6 @@ public class EnviarFormulario extends HttpServlet {
     mcde.setSolicitudes(soli);
     udao.update(mcde);
     solicitud.setMiembroCDE(mcde);
-
-    String emailMCDE = mcde.getEmail();
-    String asunto = "Se le ha asignado un nuevo proyecto";
-    String cuerpo = "Se le ha asginado un nuevo proyecto titulado " + solicitud.getTitulo() + " creado por "
-        + solicitud.getInvestigador().getName() + " " + solicitud.getInvestigador().getSurname() + ".";
-
-    Notificacion notificacion = new Notificacion();
-    notificacion.setAsunto(asunto);
-    notificacion.setContenido(cuerpo);
-    notificacion.setTipo("Propuesta subida");
-    notificacion.setSolicitud(solicitud);
-    notificacion.setUsuario(mcde);
-    ndao.create(notificacion);
-
-    EmailHandler automail = EmailHandler.getInstance();
-    automail.sendEmail(emailMCDE, asunto, cuerpo);
 
     return solicitud;
 

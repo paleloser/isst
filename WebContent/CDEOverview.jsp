@@ -25,7 +25,7 @@
           <tr>
             <th scope="col" class="">Caso</th>
             <th scope="col" class="d-none d-sm-table-cell">Investigador</th>
-            <th scope="col" class="">Subido</th>
+            <th scope="col" class="">Fecha</th>
             <th></th>
           </tr>
         </thead>

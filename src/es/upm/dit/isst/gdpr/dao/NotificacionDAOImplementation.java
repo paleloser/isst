@@ -3,6 +3,7 @@ package es.upm.dit.isst.gdpr.dao;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.UUID;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -23,8 +24,10 @@ public class NotificacionDAOImplementation implements NotificacionDAO{
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
+      String id = UUID.randomUUID().toString();
       Calendar date = Calendar.getInstance();
-      Date today = date.getTime();
+			Date today = date.getTime();
+			notificacion.setId(id);
 			notificacion.setDate(today);
 			notificacion.setTipo(notificacion.getTipo() == null ? "" : notificacion.getTipo());
 			session.save(notificacion);
@@ -106,7 +109,6 @@ public class NotificacionDAOImplementation implements NotificacionDAO{
 			session.beginTransaction();
 			Query query = session.createQuery("from Notificacion order by date");
 			nots = query.list();
-			System.out.println("//////////////////////////////////////////////////////////////////// " + nots.size());
 			session.getTransaction().commit();
 			
 		} catch(Exception e) {

@@ -16,7 +16,8 @@ import org.hibernate.annotations.LazyCollectionOption;
 public class Notificacion implements Serializable {
 
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
 	private String asunto;
 	private String contenido;
@@ -34,11 +35,11 @@ public class Notificacion implements Serializable {
 
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

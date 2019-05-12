@@ -25,7 +25,8 @@
           <tr>
             <th scope="col" class="">Caso</th>
             <th scope="col" class="d-none d-sm-table-cell">Investigador</th>
-            <th scope="col" class="">Fecha</th>
+            <th scope="col" class="d-none d-sm-table-cell">Fecha</th>
+            <th scope="col" class="">Estado</th>
             <th></th>
           </tr>
         </thead>
@@ -34,13 +35,33 @@
         		<tr>
         			<td>${sol.titulo}</td>
         			<td class="d-none d-sm-table-cell">${sol.investigador.email}</td>
-        			<td>${sol.fecha}</td>
+        			<td class="d-none d-sm-table-cell">${sol.fecha}</td>
+              <c:if test="${sol.estado == 1}">
+                <td class="text-primary">
+                  En proceso
+                </td>
+              </c:if>
+              <c:if test="${sol.estado == 2}">
+                <td class="text-success">
+                  Aprobado
+                </td>
+              </c:if>
+              <c:if test="${sol.estado == 3}">
+                <td class="text-danger">
+                  Denegado
+                </td>
+              </c:if>
+              <c:if test="${sol.estado == 4}">
+                <td class="text-warning">
+                  Info. Solicitada
+                </td>
+              </c:if>
         			<td class="open-case d-flex flex-row justify-content-end">
         				<form method="post" action="MuestraSolicitud">
         					<input type="hidden" name="titulo" value="${sol.titulo}"/>
               				<button type="submit" class="icon-button"><i class="material-icons">chevron_right</i></button>
               			</form>
-            		</td>
+                </td>
         		</tr>
         	</c:forEach>
         </tbody>
